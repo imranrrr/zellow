@@ -139,7 +139,7 @@ const Listing = () => {
           </div>
         </div>
       </div>
-      <h1 style={{ margin: "50px 0 -100px 140px" }}>
+      <h1 style={{ margin: "30px 0 -100px 120px" }}>
         Current Listings in California
       </h1>
       <div style={{ marginBottom: "50px" }}>
