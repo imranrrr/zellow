@@ -22,6 +22,24 @@ local:
 #   storage_access_key: <%= Rails.application.credentials.dig(:azure_storage, :storage_access_key) %>
 #   container: your_container_name-<%= Rails.env %>
 
+amazon_development:
+  service: S3
+  access_key_id: <%= Rails.application.credentials.dig(
+    :aws, :access_key_id) %>
+  secret_access_key: <%= Rails.application.credentials.dig(
+    :aws, :secret_access_key) %>
+  region: us-west-1
+  bucket: zillion-clone-dev
+
+amazon_production:
+  service: S3
+  access_key_id: <%= Rails.application.credentials.dig(
+    :aws, :access_key_id) %>
+  secret_access_key: <%= Rails.application.credentials.dig(
+    :aws, :secret_access_key) %>
+  region: us-west-1
+  bucket: zillion-clone-prod
+
 # mirror:
 #   service: Mirror
 #   primary: local
