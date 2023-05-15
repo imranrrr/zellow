@@ -35,4 +35,3 @@ This is a full stack website clone of online real estate marketplace, [Zillow](Z
 
 ## Code Snippets
 
-
