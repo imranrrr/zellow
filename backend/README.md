@@ -19,3 +19,6 @@ This is a full stack website clone of online real estate marketplace, [Zillow](Z
 + Javascript/Jbuilder/AJAX
 + AWS
 + Render & Heroku
+
+## Features
+** I just love bold text**
