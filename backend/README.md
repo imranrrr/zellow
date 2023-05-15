@@ -3,9 +3,15 @@
 # Zillion - Zillow Clone
 [Live Site](https://authenticate-me-a23z.onrender.com/)
 
-Zillion is a website clone of online real estate marketplace, [Zillow](Zillow.com). Zillow is an American online real estate marketplace that allows users to search and list properties for sale or rent, estimate property values, and obtain other real estate-related information.
+This is a full stack website clone of online real estate marketplace, [Zillow](Zillow.com). Zillow is an American online real estate marketplace that allows users to search and list properties for sale or rent, estimate property values, and obtain other real estate-related information. This web application was created in a 2 week sprint using <mark >React</mark> 
+
+This is a full stack clone of popular food review and rating site, Yelp. This app was created in a 2 week sprint
+
+Created in a 2 week sprint using React, React-Redux, Ruby on Rails, PostgresSQL, Google Maps JavaScript API and AWS, this project replicates the features of Yelp.
 
 ## Table of Contents
 1. Technologies
 2. Features
 3. Code Highlights
+
+## Technologies
