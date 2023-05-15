@@ -1,24 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.Ready
+# Zillion - Zillow Clone
+[Live Site](https://authenticate-me-a23z.onrender.com/)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Zillion is a website clone of online real estate marketplace, [Zillow](Zillow.com). Zillow is an American online real estate marketplace that allows users to search and list properties for sale or rent, estimate property values, and obtain other real estate-related information.
