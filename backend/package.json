@@ -1,8 +1,10 @@
 {
-  "name": "backend",
+  "name": "zillion",
   "version": "1.0.0",
-  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
-  "main": "index.js",
+  "description": "A web application clone of Zillow.com",
+  "engines": {
+    "node": "16.x"
+  },
   "directories": {
     "lib": "lib",
     "test": "test"
