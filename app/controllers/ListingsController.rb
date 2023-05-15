@@ -40,7 +40,6 @@ class ListingsController < ApplicationController
 
     if @listing.update(listing_params)
       if params[:listing][:images]
-        binding.irb
         params[:listing][:images].each do |image|
           if(! @listing.image_urls.include?(image))
             @listing.images.attach(image)
