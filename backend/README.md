@@ -34,3 +34,4 @@ This is a full stack website clone of online real estate marketplace, [Zillow](Z
 + Users can also search for listings via the search bar. It is not required to log in to use the search feature. A user can search listings based on the listing's address, city and state. 
 
 ## Code Snippets
+
