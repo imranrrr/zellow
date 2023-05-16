@@ -98,42 +98,26 @@ const Listing = () => {
       <Header />
       <div
         style={{
-          height: "300px",
+          height: "500px",
           width: "100%",
           backgroundImage: `url("https://wp-tid.zillowstatic.com/bedrock/app/uploads/sites/5/2022/08/ZG_ZPA_08_21_Americana_ExtFront_1081_4936px_desktopWebp2x-2-scaled.webp")`,
-          paddingBottom: "100px",
+          paddingBottom: "150px",
+          objectFit: "cover",
         }}
       >
-        <div
-          style={{
-            marginTop: "50px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            padding: "60px",
-          }}
-        >
-          <h1 style={{ textAlign: "center", color: "white" }}>
-            Find it. Tour it. Own it.
-          </h1>
-          <div style={{ position: "relative", width: "50%" }}>
+        <div className="container__primaryheading">
+          <h1>Find it. Tour it. Own it.</h1>
+          <div className="container__searchbar">
             <input
               type="text"
               placeholder="Enter an address, neighborhood, city or zipcode"
-              style={{
-                fontSize: "18px",
-                fontWeight: "400",
-                height: "40px",
-
-                position: "relative",
-              }}
               onKeyDown={(e) => {
                 if (e.keyCode === 13) {
                   handleNavigate(e);
                 }
               }}
             />
-            <div style={{ position: "absolute", right: 1, top: 15 }}>
+            <div className="container__searchbar__icon">
               <FaSearch size={25} />
             </div>
           </div>

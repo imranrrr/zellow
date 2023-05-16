@@ -15,7 +15,6 @@
 .card-body h3 {
   font-size: 20px;
   margin: 0 0 8px;
-
 }
 
 .card-body p {
@@ -27,4 +26,45 @@
   height: 100px;
   width: 200px;
   display: block;
+}
+
+.container__primaryheading {
+  display: flex;
+  flex-direction: column;
+  padding: 60px;
+  align-items: center;
+}
+.container__primaryheading h1 {
+  font-size: 36px;
+  color: white;
+  line-height: 40px;
+  margin-bottom: 2rem;
+  text-align: center;
+  filter: drop-shadow(0px 0px 3px #000);
+}
+.container__searchbar {
+  position: relative;
+  width: 57%;
+}
+.container__searchbar input {
+  outline: none;
+  position: relative;
+  font-size: 18px;
+  font-weight: 400;
+  height: 4.5rem;
+  padding-left: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: text;
+}
+.container__searchbar input:hover {
+  border-color: rgb(0, 106, 255);
+}
+
+
+.container__searchbar__icon {
+  position: absolute;
+  right: 1rem;
+  top: 1.5rem;
+  color: #54545a;
 }
