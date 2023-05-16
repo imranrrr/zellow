@@ -2,7 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ListingForm from "./Index";
-const BASE_URL = "http://localhost:3000";
+import { BASE_URL } from "../../helper/variable";
+
 
 const AddListing = () => {
   const navigate = useNavigate();

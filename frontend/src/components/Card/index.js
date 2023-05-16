@@ -63,10 +63,6 @@ const Card = ({
     }
   };
 
-  [{iamges: [], address: "New York", home_price: 20000, bedrooms: 4, listingSize: 2, marketStatus: "Active",
-  address: "New york", city: "New York", state: "WD", zipCode: "222222", user_id: 1}, {iamges: [], address: "New York", home_price: 20000, bedrooms: 4, listingSize: 2, marketStatus: "Active",
-  address: "New york", city: "New York", state: "WD", zipCode: "222222", user_id: 1}, {iamges: [], address: "New York", home_price: 20000, bedrooms: 4, listingSize: 2, marketStatus: "Active",
-  address: "New york", city: "New York", state: "WD", zipCode: "222222", user_id: 1}]
   return (
     <div className="card-container">
       <div className="card">

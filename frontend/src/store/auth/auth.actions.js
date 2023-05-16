@@ -1,7 +1,8 @@
 import { SIGNIN_SUCCESS, SIGNOUT } from "./auth.constants";
 import axios from "axios";
 
-const BASE_URL = "http://localhost:3000";
+import { BASE_URL } from "../../helper/variable";
+
 
 export const signin = (credential, password) => async (dispatch) => {
   try {

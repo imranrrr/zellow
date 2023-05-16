@@ -2,8 +2,7 @@ import List from "../Listing/List/Index";
 import { useEffect, useState } from "react";
 import Header from "../Header/Index";
 import axios from "axios";
-
-const BASE_URL = "http://localhost:3000";
+import { BASE_URL } from "../../helper/variable";
 
 const Favorite = () => {
   const [favorites, setFavorites] = useState([]);
