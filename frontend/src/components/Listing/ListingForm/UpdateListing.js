@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ListingForm from "./Index";
 
-import { BASE_URL } from "../../helper/variable";
+import { BASE_URL } from "../../../helper/variable";
 
 
 const UpdateListing = ({ handleClose, listing }) => {

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { BASE_URL } from "../../helper/variable";
+import { BASE_URL } from "../../../helper/variable";
 
 
 const List = ({ listings }) => {
