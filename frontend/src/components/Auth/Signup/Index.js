@@ -23,7 +23,7 @@ function Signup() {
   return (
     <>
       <h2 className="header">Welcome to Zillion</h2>
-      <form onSubmit={handleSubmit}>
+      <form  className="signup__form" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error) => (
             <p className="error" key={error}>
@@ -31,33 +31,34 @@ function Signup() {
             </p>
           ))}
         </ul>
-        <label>
+        <label  className="email" >
           Email
+          </label>
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </label>
-        <label>
+        <label  className="emailpassword" >
           Password
+          </label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </label>
-        <label>
+
+        <label  className="confirmpassword" >
           Confirm Password
+          </label>
           <input
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
-        </label>
         <button type="submit">Sign Up</button>
       </form>
     </>

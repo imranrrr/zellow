@@ -24,30 +24,30 @@ const Login = () => {
   return (
     <>
       <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+      <form  className="login" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error) => (
             <li key={error}>{error}</li>
           ))}
         </ul>
-        <label>
+        <label className="email"  >
           Email
+          </label>
           <input
             type="text"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
             required
           />
-        </label>
-        <label>
+        <label className="password" >
           Password
+          </label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </label>
         <button type="submit">Log In</button>
       </form>
     </>

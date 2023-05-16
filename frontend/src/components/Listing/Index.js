@@ -18,8 +18,8 @@ import axios from "axios";
 
 import UpdateListing from "./ListingForm/UpdateListing";
 import Card from "../Card";
+import { BASE_URL } from "../../helper/variable";
 
-const BASE_URL = "http://localhost:3000";
 const style = {
   position: "absolute",
   top: "50%",

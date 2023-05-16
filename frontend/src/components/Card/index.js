@@ -3,7 +3,8 @@ import axios from "axios";
 import { useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import "./Card.css";
-const BASE_URL = "http://localhost:3000";
+import { BASE_URL } from "../../helper/variable";
+
 const Card = ({
   listings,
   listing,
@@ -78,8 +79,8 @@ const Card = ({
           <FaHeart color={isFavourite ? "red" : "gray"} />
         </div>
         <div className="card-body" onClick={() => handleListingClick(listing)}>
-          <h3>${Math.floor(listing?.home_price).toLocaleString()}</h3>
-          <p>
+          <h3>${Math.floor(listing?.home_price).toLocaleString()}/mo</h3>
+          <p  className="card-body-info" >
             {listing?.bedrooms} bds | {listing?.bathrooms} ba |{" "}
             {listing?.listingSize} sqft | {listing?.marketStatus}
           </p>

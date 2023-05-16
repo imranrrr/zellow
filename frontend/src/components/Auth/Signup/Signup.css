@@ -7,7 +7,18 @@
   cursor: pointer;
   transition: color 0.3s ease-in-out;
 }
-
+.signup__form input{
+  width: 400px;
+}
+.email {
+  margin-right: 22rem;
+}
+.emailpassword {
+  margin-right: 20rem;
+}
+.confirmpassword{
+  margin-right: 16rem;
+}
 .sign-up:hover {
   color: #007ac9;
 }
