@@ -9,8 +9,4 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :favorite_listings, through: :favorites, source: :listing
 
-
-  def jwt_payload
-    super
-  end
 end
