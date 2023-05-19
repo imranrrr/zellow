@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
+import { BASE_URL } from "../../../helper/variable";
 
-const BASE_URL = "http://localhost:3000";
 
 const List = ({ listings }) => {
   const sessionUser = localStorage.getItem("current_user");

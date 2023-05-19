@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ListingsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :search]
   before_action :set_listing, only: [:show, :update, :destroy]
 
   def index
@@ -41,7 +42,7 @@ class ListingsController < ApplicationController
     if @listing.update(listing_params)
       if params[:listing][:images]
         params[:listing][:images].each do |image|
-          if(! @listing.image_urls.include?(image))
+          if(!@listing.image_urls.include?(image))
             @listing.images.attach(image)
           end
         end

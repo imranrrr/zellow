@@ -1,9 +1,9 @@
 import { Button } from "@mui/base";
 import axios from "axios";
 import { useState } from "react";
-import { FaHeart } from "react-icons/fa";
 import "./Card.css";
-const BASE_URL = "http://localhost:3000";
+import { BASE_URL } from "../../helper/variable";
+import { FaHeart, FaTrash, FaEdit } from "react-icons/fa";
 const Card = ({
   listings,
   listing,
@@ -77,32 +77,27 @@ const Card = ({
         <div className="favorite" onClick={() => handleFavorite(listing)}>
           <FaHeart color={isFavourite ? "red" : "gray"} />
         </div>
-        <div className="card-body" onClick={() => handleListingClick(listing)}>
-          <h3>${Math.floor(listing?.home_price).toLocaleString()}</h3>
-          <p>
-            {listing?.bedrooms} bds | {listing?.bathrooms} ba |{" "}
-            {listing?.listingSize} sqft | {listing?.marketStatus}
-          </p>
-          <p>
-            {listing?.address}, {listing?.city}, {listing?.state},{" "}
-            {listing?.zipCode}
-          </p>
-        </div>
-        {sessionUser?.id === listing.user_id ? (
-          <div>
-            <Button
-              style={{
-                marginRight: "30px",
-              }}
-              onClick={() => handleOpenUpdate(listing)}
-            >
-              Edit
-            </Button>
-            <Button onClick={() => handleDelete(listing)}>Delete</Button>
+        <div style={{display: "flex", justifyContent: "space-between"}}>
+          <div className="card-body" onClick={() => handleListingClick(listing)}>
+            <h3>${Math.floor(listing?.home_price).toLocaleString()}/mo</h3>
+            <p  className="card-body-info" >
+              {listing?.bedrooms} bds | {listing?.bathrooms} ba |{" "}
+              {listing?.listingSize} sqft | {listing?.marketStatus}
+            </p>
+            <p>
+              {listing?.address}, {listing?.city}, {listing?.state},{" "}
+              {listing?.zipCode}
+            </p>
           </div>
-        ) : (
-          <></>
-        )}
+          {sessionUser?.id === listing.user_id ? (
+            <div>
+              <FaEdit onClick={() => handleOpenUpdate(listing)} style={{ color: "blue", margin: "5px" }} size={20} />
+              <FaTrash onClick={() => handleDelete(listing)} style={{ color: "red", margin: "5px" }} size={20}/>
+            </div>
+          ) : (
+            <></>
+          )}
+        </div>
       </div>
     </div>
   );

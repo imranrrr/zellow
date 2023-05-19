@@ -2,7 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ListingForm from "./Index";
-const BASE_URL = "http://localhost:3000";
+import { BASE_URL } from "../../../helper/variable";
+import Header from "../../Header/Index"
 
 const AddListing = () => {
   const navigate = useNavigate();
@@ -73,13 +74,16 @@ const AddListing = () => {
   };
 
   return (
-    <ListingForm
+    <>
+     <Header />
+      <ListingForm
       formData={formData}
       handleInputChange={handleInputChange}
       handleImageChange={handleImageChange}
       handleSubmit={handleSubmit}
       text="Submit"
-    ></ListingForm>
+    />
+    </>
   );
 };
 
