@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "./Listings.css";
 import { useEffect, useState } from "react";
-import {Box, Button} from "@mui/material";
+import { Box, Button } from "@mui/material";
 import Show from "./Show/Inedx";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
@@ -43,23 +43,31 @@ const Listing = () => {
   };
   const handleCloseUpdate = () => setOpenUpdate(false);
 
+ 
+
   const [listings, setListings] = useState([]);
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("");
   const [selectedListing, setSelectedListing] = useState(null);
   const sessionUser = JSON.parse(localStorage.getItem("current_user"));
   const navigate = useNavigate();
+  
+  const fetchListings = async () => {
+    const response = await axios.get(`${BASE_URL}/listings`);
+    if (response.status === 200) {
+      localStorage.setItem("listings", JSON.stringify(response.data));
+      setListings(response.data);
+    }
+  };
+
+  const handleUpdate = () =>{
+    setOpenUpdate(false);
+    fetchListings();
+  }
 
   useEffect(() => {
-    const fetchListings = async () => {
-      const response = await axios.get(`${BASE_URL}/listings`);
-      if (response.status === 200) {
-        localStorage.setItem("listings", JSON.stringify(response.data));
-        setListings(response.data);
-      }
-    };
-   
     fetchListings();
   }, []);
+  
 
   const handleListingClick = (listing) => {
     setSelectedListing(listing);
@@ -67,10 +75,10 @@ const Listing = () => {
   };
 
   const handleSearch = async () => {
-    debugger
+    debugger;
     const res = await axios(`${BASE_URL}/listings/search?q=${search}`);
     localStorage.setItem("searched_listings", JSON.stringify(res.data));
-    setListings(res.data)
+    setListings(res.data);
   };
 
   const handleDelete = async (listing) => {
@@ -81,17 +89,18 @@ const Listing = () => {
         "Content-Type": "application/json",
       },
     });
+    fetchListings()
   };
-  
-  const handleSearchChange = (e) =>{
-    const value = e.target.value
-    setSearch(value)
-    if(value == ""){
-      debugger
-      const list = JSON.parse(localStorage.getItem("listings"))
-      setListings(list)
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearch(value);
+    if (value == "") {
+      debugger;
+      const list = JSON.parse(localStorage.getItem("listings"));
+      setListings(list);
     }
-  }
+  };
 
   return (
     <>
@@ -114,19 +123,39 @@ const Listing = () => {
               onChange={(e) => handleSearchChange(e)}
             />
             <div className="container__searchbar__icon">
-              <Button onClick={handleSearch}><FaSearch size={25} /></Button>
+              <Button onClick={handleSearch}>
+                <FaSearch size={25} />
+              </Button>
             </div>
           </div>
         </div>
       </div>
-      <h1 style={{ margin: "30px 0 -100px 120px" }}>
-        Current Listings in California
+      <h1
+        style={{
+          marginLeft: "2.5rem",
+          position: "relative",
+          top: "1rem",
+          fontSize: "16px",
+        }}
+      >
+        {/* Current Listings in California */}
+        Trending Homes in San Francisco, CA
       </h1>
+      <div
+        style={{
+          margin: "30px 0 -180px 40px",
+          position: "relative",
+          bottom: "1rem",
+          color: "grey",
+        }}
+      >
+        <span>Popular listings in the area</span>
+      </div>
       <div style={{ marginBottom: "50px" }}>
         <Swiper
           modules={[Navigation, Mousewheel, Scrollbar, A11y]}
-          spaceBetween={50}
-          slidesPerView={3}
+          spaceBetween={-40}
+          slidesPerView={4}
           navigation
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
@@ -135,7 +164,7 @@ const Listing = () => {
         >
           {listings &&
             listings?.map((listing) => (
-              <SwiperSlide key={listing?.id}>
+              <SwiperSlide key={listing?.id} style={{ padding: "30px" }}>
                 <Card
                   listings={listings}
                   listing={listing}
@@ -159,7 +188,7 @@ const Listing = () => {
             style={{
               overflowY: "auto",
             }}
-            handleClose={handleCloseUpdate}
+            handleClose={handleUpdate}
             listing={selectedListing}
           ></UpdateListing>
         </Box>
