@@ -74,6 +74,7 @@ const Card = ({
           }
           alt={listing?.address}
         />
+        
         <div className="favorite" onClick={() => handleFavorite(listing)}>
           <FaHeart color={isFavourite ? "red" : "gray"} />
         </div>
