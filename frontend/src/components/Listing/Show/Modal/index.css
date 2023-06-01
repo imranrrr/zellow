@@ -124,3 +124,14 @@ height: 100vh;
   margin-left: 1.6rem;
   height: 29vh;
 }
+
+.tour .swiper-initialized  .swiper-button-prev{
+  position: absolute;
+  right: 10%;
+  top: 18%;
+}
+.tour .swiper-initialized .swiper-button-next{
+  position: absolute;
+  right: 10%;
+  top: 18%;
+}

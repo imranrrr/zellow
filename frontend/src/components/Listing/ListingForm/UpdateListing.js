@@ -64,7 +64,7 @@ const UpdateListing = ({ handleClose, listing }) => {
         if (response.status === 200) {
           handleClose();
           alert("Listing is updated Successfully");
-
+          
           // Handle successful creation of Listing
         } else {
           throw new Error("Failed to create Listing");

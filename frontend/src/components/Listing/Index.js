@@ -43,149 +43,35 @@ const Listing = () => {
   };
   const handleCloseUpdate = () => setOpenUpdate(false);
 
-  const [listings, setListings] = useState([
-    {
-      images: [],
-      address: "New York",
-      home_price: 20000,
-      bedrooms: 4,
-      listingSize: 2,
-      marketStatus: "Active",
-      address: "New york",
-      city: "New York",
-      state: "WD",
-      zipCode: "222222",
-      user_id: 1,
-    },
-    {
-      images: [],
-      address: "New York",
-      home_price: 20000,
-      bedrooms: 4,
-      listingSize: 2,
-      marketStatus: "Active",
-      address: "New york",
-      city: "New York",
-      state: "WD",
-      zipCode: "222222",
-      user_id: 1,
-    },
-    {
-      images: [],
-      address: "New York",
-      home_price: 20000,
-      bedrooms: 4,
-      listingSize: 2,
-      marketStatus: "Active",
-      address: "New york",
-      city: "New York",
-      state: "WD",
-      zipCode: "222222",
-      user_id: 1,
-    },
-    {
-      images: [],
-      address: "New York",
-      home_price: 20000,
-      bedrooms: 4,
-      listingSize: 2,
-      marketStatus: "Active",
-      address: "New york",
-      city: "New York",
-      state: "WD",
-      zipCode: "222222",
-      user_id: 1,
-    },
-    {
-      images: [],
-      address: "New York",
-      home_price: 20000,
-      bedrooms: 4,
-      listingSize: 2,
-      marketStatus: "Active",
-      address: "New york",
-      city: "New York",
-      state: "WD",
-      zipCode: "222222",
-      user_id: 1,
-    },
-    {
-      images: [],
-      address: "New York",
-      home_price: 20000,
-      bedrooms: 4,
-      listingSize: 2,
-      marketStatus: "Active",
-      address: "New york",
-      city: "New York",
-      state: "WD",
-      zipCode: "222222",
-      user_id: 1,
-    },
-    {
-      images: [],
-      address: "New York",
-      home_price: 20000,
-      bedrooms: 4,
-      listingSize: 2,
-      marketStatus: "Active",
-      address: "New york",
-      city: "New York",
-      state: "WD",
-      zipCode: "222222",
-      user_id: 1,
-    },
-    {
-      images: [],
-      address: "New York",
-      home_price: 20000,
-      bedrooms: 4,
-      listingSize: 2,
-      marketStatus: "Active",
-      address: "New york",
-      city: "New York",
-      state: "WD",
-      zipCode: "222222",
-      user_id: 1,
-    },
-    {
-      images: [],
-      address: "New York",
-      home_price: 20000,
-      bedrooms: 4,
-      listingSize: 2,
-      marketStatus: "Active",
-      address: "New york",
-      city: "New York",
-      state: "WD",
-      zipCode: "222222",
-      user_id: 1,
-    },
-  ]);
+  const [listings, setListings] = useState([]);
   const [search, setSearch] = useState("");
   const [selectedListing, setSelectedListing] = useState(null);
   const sessionUser = JSON.parse(localStorage.getItem("current_user"));
   const navigate = useNavigate();
+  
+  const fetchListings = async () => {
+    const response = await axios.get(`${BASE_URL}/listings`);
+    if (response.status === 200) {
+      localStorage.setItem("listings", JSON.stringify(response.data));
+      setListings(response.data);
+    }
+  };
 
-  // useEffect(() => {
-  //   const fetchListings = async () => {
-  //     const response = await axios.get(`${BASE_URL}/listings`);
-  //     if (response.status === 200) {
-  //       localStorage.setItem("listings", JSON.stringify(response.data));
-  //       setListings(response.data);
-  //     }
-  //   };
+  const handleUpdate = () =>{
+    setOpenUpdate(false);
+    fetchListings();
+  }
 
-  //   fetchListings();
-  // }, []);
-
+  useEffect(() => {
+    fetchListings();
+  }, []);
+  
   const handleListingClick = (listing) => {
     setSelectedListing(listing);
     handleOpen();
   };
 
   const handleSearch = async () => {
-    debugger;
     const res = await axios(`${BASE_URL}/listings/search?q=${search}`);
     localStorage.setItem("searched_listings", JSON.stringify(res.data));
     setListings(res.data);
@@ -199,6 +85,7 @@ const Listing = () => {
         "Content-Type": "application/json",
       },
     });
+    fetchListings()
   };
 
   const handleSearchChange = (e) => {
@@ -297,7 +184,7 @@ const Listing = () => {
             style={{
               overflowY: "auto",
             }}
-            handleClose={handleCloseUpdate}
+            handleClose={handleUpdate}
             listing={selectedListing}
           ></UpdateListing>
         </Box>

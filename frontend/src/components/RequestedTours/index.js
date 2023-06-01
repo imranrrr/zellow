@@ -9,6 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Header from "../Header/Index";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
@@ -77,7 +78,10 @@ const rows = [
 ];
 export default function CustomizedTables() {
   return (
+    <>
+      <Header/>
     <div style={{ padding: "3rem" }}>
+      
       <div>
         <h3>Requested Tours</h3>
       </div>
@@ -123,5 +127,6 @@ export default function CustomizedTables() {
         </TableContainer>
       </div>
     </div>
+    </>
   );
 }

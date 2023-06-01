@@ -1,7 +1,6 @@
-import * as React from "react";
+import React, {useState} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
+import {Box, Modal, Select, MenuItem } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import "./index.css";
 import { Mousewheel, Navigation, Scrollbar, A11y } from "swiper";
@@ -13,7 +12,9 @@ import "swiper/css";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { borderRadius } from "@mui/system";
-import TourRequestModal from "./TourRequestModal/index"
+import TourRequestModal from "./TourRequestModal/index";
+
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -28,8 +29,11 @@ const style = {
   borderRadius: 2,
 };
 
+const timeVariable = ['11:00 am', '12:00 pm', '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm', '6:00 pm', '7:00 pm', '8:00 pm', '9:00 pm', '10:00 pm', '11:00 pm', '12:00 am', '1:00 am', '2:00 am', '3:00 am', '4:00 am', '5:00 am', '6:00 am', '7:00 am', '8:00 am', '9:00 am', '10:00 am']
+
 export default function BasicModal() {
   const [open, setOpen] = React.useState(false);
+  const [requestForm, setRequestForm] = useState({})
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -76,75 +80,48 @@ export default function BasicModal() {
 
             <div
               style={{
-                display: "flex",
-                width: "320px",
-                justifyContent: "space-between",
-                position: "relative",
-                top: "0.5rem",
+                height: "140px",
               }}
+              className="tour"
             >
-              <div
-                style={{
-                  position: "relative",
-                  left: "0.4rem",
-                  top: "2rem",
-                  color: "lightgrey",
-                }}
+              <Swiper
+                modules={[Navigation, Mousewheel, Scrollbar, A11y]}
+                slidesPerView={3}
+                navigation
+                pagination={{ clickable: true }}
+                scrollbar={{ draggable: true }}
+                onSwiper={(swiper) => console.log(swiper)}
+                onSlideChange={() => console.log("slide change")}
               >
-                <ArrowBackIosIcon />
-              </div>
-              <div className="tour__request__container__border__container">
-                <div className="tour__request__container__border__container__subcontainer">
-                  <div className="tour__request__container__border__container__subcontainer__days">
-                    <p>FRI</p>
+                <SwiperSlide key={1}>
+                  <div className="tour__request__container__border__container__second">
+                    <div className="tour__request__container__border__container__subcontainer">
+                      <div className="tour__request__container__border__container__subcontainer__days">
+                        <p>SAT</p>
+                      </div>
+                      <div className="tour__request__container__border__container__subcontainer__dates">
+                        <p>May 27</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="tour__request__container__border__container__subcontainer__dates">
-                    <p>May 26</p>
-                  </div>
-                </div>
-              </div>
-              <div className="tour__request__container__border__container__second">
-                <div className="tour__request__container__border__container__subcontainer">
-                  <div className="tour__request__container__border__container__subcontainer__days">
-                    <p>SAT</p>
-                  </div>
-                  <div className="tour__request__container__border__container__subcontainer__dates">
-                    <p>May 27</p>
-                  </div>
-                </div>
-              </div>
-              <div className="tour__request__container__border__container__third">
-                <div className="tour__request__container__border__container__subcontainer">
-                  <div className="tour__request__container__border__container__subcontainer__days">
-                    <p>SUN</p>
-                  </div>
-                  <div className="tour__request__container__border__container__subcontainer__dates">
-                    <p>May 28</p>
-                  </div>
-                </div>
-              </div>
-              <div
-                style={{
-                  position: "relative",
-                  left: "1.8rem",
-                  top: "2rem",
-                  color: "#0d7ee8",
-                  cursor: "pointer",
-                }}
-              >
-                <ArrowForwardIosIcon />
-              </div>
+                </SwiperSlide>
+                
+              </Swiper>
             </div>
             <div className="tour__request__container__selectfield">
-              <select>
-                <option selected="">11:00 am</option>
-                <option selected="">01:00 am</option>
-                <option selected="">02:00 am</option>
-                <option selected="">03:00 am</option>
-              </select>
+            <Select
+    labelId="demo-simple-select-label"
+    id="demo-simple-select"
+    label="Age"
+    onChange={() => console.log("jndc")}
+  >
+    <MenuItem value={10}>Ten</MenuItem>
+    <MenuItem value={20}>Twenty</MenuItem>
+    <MenuItem value={30}>Thirty</MenuItem>
+  </Select>
             </div>
             <div className="tour__request__container__tourbutton">
-             <TourRequestModal/>
+              <TourRequestModal />
             </div>
             <div className="tour__request__container__image">
               <img src="https://photos.zillowstatic.com/fp/9f4f9b85918fb3e791e1fc75e0c8a804-cc_ft_768.webp" />
