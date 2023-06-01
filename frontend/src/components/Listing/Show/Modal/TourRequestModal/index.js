@@ -38,9 +38,9 @@ export default function TourRequestModal() {
       <button
         onClick={handleOpen}
         style={{
-          marginTop: "1.5rem",
-          width: "85%",
-          marginLeft: "1.6rem",
+          marginTop: "1rem",
+          width: "87%",
+          marginLeft: "1rem",
           fontSize: "bold",
         }}
       >

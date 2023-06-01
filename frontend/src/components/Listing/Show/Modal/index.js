@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {Box, Modal, Select, MenuItem } from "@mui/material";
+import { Box, Modal, Select, MenuItem } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import "./index.css";
 import { Mousewheel, Navigation, Scrollbar, A11y } from "swiper";
@@ -13,8 +13,9 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { borderRadius } from "@mui/system";
 import TourRequestModal from "./TourRequestModal/index";
-
-
+import InputLabel from "@mui/material/InputLabel";
+import FormControl from "@mui/material/FormControl";
+import moment from "moment";
 const style = {
   position: "absolute",
   top: "50%",
@@ -29,14 +30,62 @@ const style = {
   borderRadius: 2,
 };
 
-const timeVariable = ['11:00 am', '12:00 pm', '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm', '6:00 pm', '7:00 pm', '8:00 pm', '9:00 pm', '10:00 pm', '11:00 pm', '12:00 am', '1:00 am', '2:00 am', '3:00 am', '4:00 am', '5:00 am', '6:00 am', '7:00 am', '8:00 am', '9:00 am', '10:00 am']
+const timeVariable = [
+  "11:00 am",
+  "12:00 pm",
+  "1:00 pm",
+  "2:00 pm",
+  "3:00 pm",
+  "4:00 pm",
+  "5:00 pm",
+  "6:00 pm",
+  "7:00 pm",
+  "8:00 pm",
+  "9:00 pm",
+  "10:00 pm",
+  "11:00 pm",
+  "12:00 am",
+  "1:00 am",
+  "2:00 am",
+  "3:00 am",
+  "4:00 am",
+  "5:00 am",
+  "6:00 am",
+  "7:00 am",
+  "8:00 am",
+  "9:00 am",
+  "10:00 am",
+];
 
 export default function BasicModal() {
   const [open, setOpen] = React.useState(false);
-  const [requestForm, setRequestForm] = useState({})
+  const [requestForm, setRequestForm] = useState({
+    type: "",
+    date: null,
+    time: "",
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [selected, setSelected] = React.useState("");
+  const [currentDate, setCurrentDate] = useState("");
+  const handleChange = (event) => {
+    setSelected(event.target.value);
+  };
 
+  const date = new Date();
+  var arr = [];
+  for (let i = 0; i <7; i++) {
+    debugger;
+    const formattedDate = moment(date).add(i, "days").format("MMMM Do");
+    const day = moment(date).add(i, "days").format("dddd");
+    const dateAndDay = { date: formattedDate, day: day };
+    arr.push(dateAndDay);
+    console.log(arr);
+  }
   return (
     <div>
       <button style={{ width: "18rem", height: "3.9rem" }} onClick={handleOpen}>
@@ -64,7 +113,7 @@ export default function BasicModal() {
             </div>
             <div className="tour__request__container__tabs__container">
               <div className="tour__request__container__tabs__container__persontab">
-                <div className="tour__request__container__tabs__container__persontab__title">
+                <div className="tour__request__container__tabs__container__persontab__title" >
                   <p>In-person</p>
                 </div>
               </div>
@@ -81,11 +130,14 @@ export default function BasicModal() {
             <div
               style={{
                 height: "140px",
+                position: "relative",
+                bottom: "1.5rem",
               }}
               className="tour"
             >
               <Swiper
                 modules={[Navigation, Mousewheel, Scrollbar, A11y]}
+                spaceBetween={-15}
                 slidesPerView={3}
                 navigation
                 pagination={{ clickable: true }}
@@ -93,32 +145,48 @@ export default function BasicModal() {
                 onSwiper={(swiper) => console.log(swiper)}
                 onSlideChange={() => console.log("slide change")}
               >
-                <SwiperSlide key={1}>
-                  <div className="tour__request__container__border__container__second">
-                    <div className="tour__request__container__border__container__subcontainer">
-                      <div className="tour__request__container__border__container__subcontainer__days">
-                        <p>SAT</p>
-                      </div>
-                      <div className="tour__request__container__border__container__subcontainer__dates">
-                        <p>May 27</p>
+                {arr.map((item) => (
+                  <SwiperSlide key={1}>
+                    <div className="tour__request__container__border__container__second">
+                      <div className="tour__request__container__border__container__subcontainer">
+                        <div className="tour__request__container__border__container__subcontainer__days">
+                          <p>{item.day}</p>
+                        </div>
+                        <div className="tour__request__container__border__container__subcontainer__dates">
+                          <p>{item.date}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </SwiperSlide>
-                
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </div>
-            <div className="tour__request__container__selectfield">
-            <Select
-    labelId="demo-simple-select-label"
-    id="demo-simple-select"
-    label="Age"
-    onChange={() => console.log("jndc")}
-  >
-    <MenuItem value={10}>Ten</MenuItem>
-    <MenuItem value={20}>Twenty</MenuItem>
-    <MenuItem value={30}>Thirty</MenuItem>
-  </Select>
+            <div>
+              <Box sx={{ minWidth: 120 }}>
+                <FormControl fullWidth>
+                  <InputLabel
+                    style={{ marginLeft: "1rem" }}
+                    id="demo-simple-select-label"
+                  >
+                    Time
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    label="Time"
+                    style={{
+                      width: "87%",
+                      marginLeft: "1rem",
+                    }}
+                    value={selected}
+                    onChange={handleChange}
+                  >
+                    {timeVariable.map((item) => (
+                      <MenuItem value={item}>{item}</MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Box>
             </div>
             <div className="tour__request__container__tourbutton">
               <TourRequestModal />

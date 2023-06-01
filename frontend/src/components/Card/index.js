@@ -66,15 +66,16 @@ const Card = ({
   return (
     <div className="card-container">
       <div className="card">
+        <div>
         <img
-          className="image"
+        className="image" 
           src={
             (listing?.images && listing?.images[0]) ||
             "https://s.zillowstatic.com/pfs/static/z-logo-default.svg"
           }
           alt={listing?.address}
         />
-        
+        </div>
         <div className="favorite" onClick={() => handleFavorite(listing)}>
           <FaHeart color={isFavourite ? "red" : "gray"} />
         </div>

@@ -61,11 +61,11 @@ height: 100vh;
   margin-top: 1.5rem;
   position: relative;
   font-weight: bold;
-  left: 0.4rem;
+  right: 1.2rem;
 }
 .tour__request__container__border__container {
   border: 2px solid #0d7ee8;
-  width: 80%;
+  width: 70%;
   height: 6rem;
   border-radius: 4px;
   position: relative;
@@ -74,21 +74,20 @@ height: 100vh;
 .tour__request__container__border__container__subcontainer {
   text-align: center;
   font-weight: bold;
-  margin-top: 0.4rem;
 }
 .tour__request__container__border__container__subcontainer__days {
   position: relative;
   top: 1rem;
 }
-.tour__request__container__border__container__subcontainer__dates {
-}
+
 .tour__request__container__border__container__second {
   border: 1px solid gray;
-  width: 80%;
+  width: 70%;
   height: 6rem;
   border-radius: 4px;
   position: relative;
   left: 1rem;
+  gap: 0rem;
 }
 .tour__request__container__border__container__third {
   border: 1px solid gray;
@@ -115,23 +114,24 @@ height: 100vh;
 .tour__request__container__tourbutton > button {
   margin-top: 1.5rem;
   font-weight: bold;
-  margin-left: 1.6rem;
-  width: 85%;
+  margin-left: 0;
+  width: 90%;
 }
 .tour__request__container__image > img {
-  width: 85%;
+  width: 87%;
   margin-top: 1.5rem;
-  margin-left: 1.6rem;
+  margin-left: 1rem;
   height: 29vh;
 }
 
 .tour .swiper-initialized  .swiper-button-prev{
   position: absolute;
-  right: 10%;
-  top: 18%;
+  right: 1px !important;
+  top: 30%;
+  height: 100% !important;
 }
 .tour .swiper-initialized .swiper-button-next{
-  position: absolute;
-  right: 10%;
-  top: 18%;
+  right: 0%;
+  top: 30%;
+  height:100% !important;
 }
