@@ -13,7 +13,11 @@ import "swiper/css";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { borderRadius } from "@mui/system";
-import { Checkbox } from "@mui/material";
+import { Button, Checkbox } from "@mui/material";
+import axios from "axios";
+import { BASE_URL } from "../../../../../helper/variable";
+import { useNavigate } from "react-router-dom";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -28,10 +32,30 @@ const style = {
   borderRadius: 2,
 };
 
-export default function TourRequestModal() {
+export default function TourRequestModal({requestForm, setRequestForm, handleCloseRequest}) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const navigate = useNavigate();
+
+  const handleCreateTour = async () => {
+    debugger
+    await axios(`${BASE_URL}/request_tours`, {
+      method: "POST",
+      headers: { Authorization: localStorage.getItem("authorization") },
+      data: requestForm,
+    })
+      .then((response) => {
+       console.log(response)
+      })
+      .catch((error) => {
+        // Handle error creating Listing
+      });
+      handleClose()
+      handleCloseRequest()
+      navigate("/");
+  };
 
   return (
     <div>
@@ -67,29 +91,27 @@ export default function TourRequestModal() {
               <hr />
             </div>
             <div className="tour__request__container__preferredtime__title">
-              <p>Saturday, May 27 at 11:00 am</p>
+              <p>Date:  {requestForm.date} {"  "}{requestForm.time}</p>
             </div>
-            <span className="tour__request__container__preferredtime__anchortag">
-              Edit
-            </span>
+            
             <div className="tour__request__container__namefield">
               <label>Name</label>
-              <input />
+              <input type="text" value={requestForm.name} onChange={(e) => setRequestForm({...requestForm, name: e.target.value})}/>
             </div>
             <div className="tour__request__container__emailfield">
               <label>Phone</label>
-              <input />
+              <input value={requestForm.phone} onChange={(e) => setRequestForm({...requestForm, phone: e.target.value})}/>
             </div>
             <div className="tour__request__container__emailfield">
               <label>Email</label>
-              <input />
+              <input value={requestForm.email} onChange={(e) => setRequestForm({...requestForm, email: e.target.value})}/>
             </div>
             <div className="tour__request__container__emailfield">
               <label>Message</label>
-              <textarea placeholder="I am interested in 1608 5th St, Tillamook, OR 97141." />
+              <textarea value={requestForm.message} onChange={(e) => setRequestForm({...requestForm, message: e.target.value})} placeholder="I am interested in 1608 5th St, Tillamook, OR 97141." />
             </div>
             <div className="tour__request__container__tourbutton">
-              <button>Request tour</button>
+              <Button onClick={handleCreateTour}>Request tour</Button>
             </div>
             <div style={{ display: "flex" }}>
               <div className="tour__request__container__checkbox">

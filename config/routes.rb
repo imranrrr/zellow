@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
   
   resources :favorites, only: [:index, :create, :destroy]
+  resources :request_tours, only: [:index, :create, :destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
