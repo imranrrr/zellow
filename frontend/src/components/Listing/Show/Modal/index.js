@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Box, Modal, Select, MenuItem } from "@mui/material";
+import { Box, Modal, Select, MenuItem, Button } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import "./index.css";
 import { Mousewheel, Navigation, Scrollbar, A11y } from "swiper";
@@ -57,7 +57,7 @@ const timeVariable = [
   "10:00 am",
 ];
 
-export default function BasicModal() {
+export default function BasicModal({listing}) {
   const [open, setOpen] = React.useState(false);
   const [requestForm, setRequestForm] = useState({
     type: "",
@@ -67,9 +67,11 @@ export default function BasicModal() {
     email: "",
     phone: "",
     message: "",
-  });
+    listing_id: listing.id,
+    owner_id: listing.user_id
+  })
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleCloseRequest = () => setOpen(false);
   const [selected, setSelected] = React.useState("");
   const [currentDate, setCurrentDate] = useState("");
   const handleChange = (event) => {
@@ -78,7 +80,7 @@ export default function BasicModal() {
 
   const date = new Date();
   var arr = [];
-  for (let i = 0; i <7; i++) {
+  for (let i = 0; i < 7; i++) {
     debugger;
     const formattedDate = moment(date).add(i, "days").format("MMMM Do");
     const day = moment(date).add(i, "days").format("dddd");
@@ -93,7 +95,7 @@ export default function BasicModal() {
       </button>
       <Modal
         open={open}
-        onClose={handleClose}
+        onClose={handleCloseRequest}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -105,7 +107,7 @@ export default function BasicModal() {
               </div>
               <div className="tour__request__container__top__Icon">
                 {" "}
-                <CloseIcon onClick={handleClose} />
+                <CloseIcon onClick={handleCloseRequest} />
               </div>
             </div>
             <div className="tour__request__container__border">
@@ -113,13 +115,37 @@ export default function BasicModal() {
             </div>
             <div className="tour__request__container__tabs__container">
               <div className="tour__request__container__tabs__container__persontab">
-                <div className="tour__request__container__tabs__container__persontab__title" >
-                  <p>In-person</p>
+                <div
+                  className={
+                    requestForm.type == "In Person"
+                      ? "tour__request__container__tabs__container__persontab__title"
+                      : ""
+                  }
+                >
+                  <Button
+                    onClick={() =>
+                      setRequestForm({ ...requestForm, type: "In Person" })
+                    }
+                  >
+                    In-person
+                  </Button>
                 </div>
               </div>
-              <div className="tour__request__container__tabs__container__videotab">
-                <div className="tour__request__container__tabs__container__videotab__title">
-                  <p>video chat</p>
+              <div className="tour__request__container__tabs__container__persontab">
+                <div
+                  className={
+                    requestForm.type == "Video Chat"
+                      ? "tour__request__container__tabs__container__persontab__title"
+                      : ""
+                  }
+                >
+                  <Button
+                    onClick={() =>
+                      setRequestForm({ ...requestForm, type: "Video Chat" })
+                    }
+                  >
+                    video chat
+                  </Button>
                 </div>
               </div>
             </div>
@@ -148,14 +174,31 @@ export default function BasicModal() {
                 {arr.map((item) => (
                   <SwiperSlide key={1}>
                     <div className="tour__request__container__border__container__second">
-                      <div className="tour__request__container__border__container__subcontainer">
-                        <div className="tour__request__container__border__container__subcontainer__days">
-                          <p>{item.day}</p>
+                      <Button
+                        onClick={() =>
+                          setRequestForm({
+                            ...requestForm,
+                            date: item.date,
+                          })
+                        }
+                      >
+                        <div
+                          className={
+                            requestForm.date == item.date
+                              ? "tour__request__container__tabs__container__persontab__title"
+                              : ""
+                          }
+                        >
+                          <div className="tour__request__container__border__container__subcontainer">
+                            <div className="tour__request__container__border__container__subcontainer__days">
+                              <p>{item.day}</p>
+                            </div>
+                            <div className="tour__request__container__border__container__subcontainer__dates">
+                              <p>{item.date}</p>
+                            </div>
+                          </div>
                         </div>
-                        <div className="tour__request__container__border__container__subcontainer__dates">
-                          <p>{item.date}</p>
-                        </div>
-                      </div>
+                      </Button>
                     </div>
                   </SwiperSlide>
                 ))}
@@ -178,8 +221,8 @@ export default function BasicModal() {
                       width: "87%",
                       marginLeft: "1rem",
                     }}
-                    value={selected}
-                    onChange={handleChange}
+                    value={requestForm.time}
+                    onChange={(e) => setRequestForm({...requestForm, time: e.target.value})}
                   >
                     {timeVariable.map((item) => (
                       <MenuItem value={item}>{item}</MenuItem>
@@ -189,7 +232,7 @@ export default function BasicModal() {
               </Box>
             </div>
             <div className="tour__request__container__tourbutton">
-              <TourRequestModal />
+              <TourRequestModal requestForm={requestForm} setRequestForm={setRequestForm} handleCloseRequest={handleCloseRequest}/>
             </div>
             <div className="tour__request__container__image">
               <img src="https://photos.zillowstatic.com/fp/9f4f9b85918fb3e791e1fc75e0c8a804-cc_ft_768.webp" />

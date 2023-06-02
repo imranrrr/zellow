@@ -8,6 +8,7 @@ import {
 import Modal from "./Modal/index"
 import "./Show.css";
 const Show = ({ listing }) => {
+  const sessionUser = JSON.parse(localStorage.getItem("current_user"));
   return (
     <div
       style={{
@@ -121,7 +122,7 @@ const Show = ({ listing }) => {
         </div>
         <div className="button__container">
           <div>
-            <Modal/>
+            { sessionUser && sessionUser.id != listing.user_id && <Modal listing={listing}/> }
           </div>
           <div className="button__container__contact__agent">
             <button>Contact agent</button>

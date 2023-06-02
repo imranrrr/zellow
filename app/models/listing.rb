@@ -2,6 +2,7 @@ class Listing < ApplicationRecord
   has_many_attached :images
   belongs_to :user
   has_many :favorites
+  has_many :request_tours
   has_many :favorited_by, through: :favorites, source: :user
 
   def favorited_by_current_user
