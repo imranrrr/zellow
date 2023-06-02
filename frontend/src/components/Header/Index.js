@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import ProfileButton from "./ProfileButton";
 import Login from "../Auth/Login/Index";
-import Signup from "../Auth/Signup/Index";
+import Tabs from "../Auth/Tabs/Index";
 import { useDispatch } from "react-redux";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -17,11 +17,13 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 500,
+  width: 430,
+  height:550,
   bgcolor: "background.paper",
-  border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  overflowY:"scroll",
+  borderRadius:"10px"
 };
 
 function Header() {
@@ -62,9 +64,9 @@ function Header() {
           <span style={{ cursor: "pointer" }} onClick={() => handleDemoLogin()}>
             Demo User
           </span>
-          <div style={{ cursor: "pointer" }} onClick={handleOpenSignIn}>
+          {/* <div style={{ cursor: "pointer" }} onClick={handleOpenSignIn}>
             Sign In
-          </div>
+          </div> */}
           <Modal
             open={openSignIn}
             onClose={handleCloseSignIn}
@@ -79,7 +81,7 @@ function Header() {
             style={{ marginLeft: "25px", cursor: "pointer" }}
             onClick={handleOpenSignUp}
           >
-            Sign Up
+            Sign In
           </div>
           <Modal
             open={openSignUp}
@@ -88,7 +90,7 @@ function Header() {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              <Signup />
+              <Tabs />
             </Box>
           </Modal>
         </div>

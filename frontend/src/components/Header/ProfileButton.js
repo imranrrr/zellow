@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { signout } from "../../store/auth/auth.actions";
 import { FaUserCircle } from "react-icons/fa";
 import "./ProfileButton.css";
-import { useNavigate,Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 function ProfileButton({ user }) {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +41,9 @@ function ProfileButton({ user }) {
       {isOpen && (
         <ul className="profile-dropdown">
           <li onClick={logout}>Log Out</li>
-          <li><Link to={"/requested_tour"} >Tours</Link></li>
+          <li>
+            <Link to={"/requested_tour"}>Tours</Link>
+          </li>
         </ul>
       )}
     </div>

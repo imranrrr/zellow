@@ -4,6 +4,7 @@ import { useState } from "react";
 import "./Card.css";
 import { BASE_URL } from "../../helper/variable";
 import { FaHeart, FaTrash, FaEdit } from "react-icons/fa";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 const Card = ({
   listings,
   listing,
@@ -67,22 +68,25 @@ const Card = ({
     <div className="card-container">
       <div className="card">
         <div>
-        <img
-        className="image" 
-          src={
-            (listing?.images && listing?.images[0]) ||
-            "https://s.zillowstatic.com/pfs/static/z-logo-default.svg"
-          }
-          alt={listing?.address}
-        />
+          <img
+            className="image"
+            src={
+              (listing?.images && listing?.images[0]) ||
+              "https://s.zillowstatic.com/pfs/static/z-logo-default.svg"
+            }
+            alt={listing?.address}
+          />
         </div>
         <div className="favorite" onClick={() => handleFavorite(listing)}>
           <FaHeart color={isFavourite ? "red" : "gray"} />
         </div>
-        <div style={{display: "flex", justifyContent: "space-between"}}>
-          <div className="card-body" onClick={() => handleListingClick(listing)}>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div
+            className="card-body"
+            onClick={() => handleListingClick(listing)}
+          >
             <h3>${Math.floor(listing?.home_price).toLocaleString()}/mo</h3>
-            <p  className="card-body-info" >
+            <p className="card-body-info">
               {listing?.bedrooms} bds | {listing?.bathrooms} ba |{" "}
               {listing?.listingSize} sqft | {listing?.marketStatus}
             </p>
@@ -93,8 +97,16 @@ const Card = ({
           </div>
           {sessionUser?.id === listing.user_id ? (
             <div>
-              <FaEdit onClick={() => handleOpenUpdate(listing)} style={{ color: "blue", margin: "5px" }} size={20} />
-              <FaTrash onClick={() => handleDelete(listing)} style={{ color: "red", margin: "5px" }} size={20}/>
+              <FaEdit
+                onClick={() => handleOpenUpdate(listing)}
+                style={{ color: "blue", margin: "5px" }}
+                size={20}
+              />
+              <FaTrash
+                onClick={() => handleDelete(listing)}
+                style={{ color: "red", margin: "5px" }}
+                size={20}
+              />
             </div>
           ) : (
             <></>
