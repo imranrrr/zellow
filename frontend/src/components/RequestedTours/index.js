@@ -51,7 +51,13 @@ export default function RequestTours() {
   };
 
   const fetchRequestTours = async () => {
-    const response = await axios.get(`${BASE_URL}/request_tours`);
+    const response = await axios.get(`${BASE_URL}/request_tours`, {
+      method: "GET",
+      headers: {
+        Authorization: localStorage.getItem("authorization"),
+        "Content-Type": "application/json",
+      },
+    });
     if (response.status === 200) {
       setRuestTours(response.data);
     }

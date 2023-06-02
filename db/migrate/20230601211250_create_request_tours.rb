@@ -10,6 +10,9 @@ class CreateRequestTours < ActiveRecord::Migration[7.0]
       t.string :phone
       t.string :message
       t.references :user, foreign_key: true
+      t.integer :owner_id
+      t.references :listing, foreign_key: true
+
 
       t.timestamps
     end

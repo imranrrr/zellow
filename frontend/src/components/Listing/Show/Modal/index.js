@@ -57,7 +57,7 @@ const timeVariable = [
   "10:00 am",
 ];
 
-export default function BasicModal() {
+export default function BasicModal({listing}) {
   const [open, setOpen] = React.useState(false);
   const [requestForm, setRequestForm] = useState({
     type: "",
@@ -67,7 +67,9 @@ export default function BasicModal() {
     email: "",
     phone: "",
     message: "",
-  });
+    listing_id: listing.id,
+    owner_id: listing.user_id
+  })
   const handleOpen = () => setOpen(true);
   const handleCloseRequest = () => setOpen(false);
   const [selected, setSelected] = React.useState("");

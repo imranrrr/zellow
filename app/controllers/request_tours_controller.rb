@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class RequestToursController < ApplicationController
-    before_action :authenticate_user!, except: [:index]
+    before_action :authenticate_user!
     before_action :set_request_tour, only: [ :destroy]
   
     def index
-      @request_tours = RequestTour.all
+      @request_tours = RequestTour.where(owner_id: current_user.id)
       render json: @request_tours
     end
   
@@ -40,7 +40,7 @@ class RequestToursController < ApplicationController
     end
   
     def request_tour_params
-      params.require(:request_tour).permit(:tour_type, :date, :time, :name, :email, :phone, :message)
+      params.require(:request_tour).permit(:owner_id, :listing_id, :tour_type, :date, :time, :name, :email, :phone, :message)
     end
   end
   
