@@ -4,7 +4,7 @@ import { useState } from "react";
 import "./Card.css";
 import { BASE_URL } from "../../helper/variable";
 import { FaHeart, FaTrash, FaEdit } from "react-icons/fa";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 const Card = ({
   listings,
   listing,
@@ -78,22 +78,45 @@ const Card = ({
           />
         </div>
         <div className="favorite" onClick={() => handleFavorite(listing)}>
-          < FavoriteBorderIcon  htmlColor={isFavourite ? "red" : "gray"} />
+          <FavoriteBorderIcon htmlColor={isFavourite ? "red" : "gray"} />
         </div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div
             className="card-body"
             onClick={() => handleListingClick(listing)}
           >
-            <h3>${Math.floor(listing?.home_price).toLocaleString()}/mo</h3>
-            <p className="card-body-info">
-              {listing?.bedrooms} bds | {listing?.bathrooms} ba |{" "}
-              {listing?.listingSize} sqft | {listing?.marketStatus}
+            <h3>${Math.floor(listing?.home_price).toLocaleString()}</h3>
+            <p className="card-body-info" style={{ fontSize: "14px" }}>
+              {listing?.bedrooms} bd
+              <span
+                style={{
+                  borderLeft: "2px solid lightgray",
+                  marginLeft: ".2rem",
+                }}
+              ></span>
+              {listing?.bathrooms} ba{" "}
+              <span style={{ borderLeft: "2px solid lightgray" }}></span>{" "}
+              <span style={{ marginLeft: "0.3rem" }}></span>
+              {listing?.listingSize} sqft - Condo for sale
             </p>
-            <p>
+            <p
+              style={{ color: "black", fontSize: "14px" }}
+              className="card-body-info-address"
+            >
               {listing?.address}, {listing?.city}, {listing?.state},{" "}
               {listing?.zipCode}
             </p>
+            <span
+              style={{
+                fontSize: "11px",
+                display: "inline-block",
+                position: "relative",
+                bottom: "0.5rem",
+                color: "black",
+              }}
+            >
+              Paul Warrin DRE #01364693
+            </span>
           </div>
           {sessionUser?.id === listing.user_id ? (
             <div>

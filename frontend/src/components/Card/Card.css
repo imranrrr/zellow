@@ -33,7 +33,7 @@
 }
 .card-body-info {
   grid-area: body1 / body1 / body1 / body1;
-  color: rgb(42, 42, 51);
+  color: black;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -43,9 +43,14 @@
   font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
   font-weight: 400;
   font-size: 14px;
-  line-height: 24px;
+  line-height: 10px;
 }
-
+.open-body-info> p{
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+}
+.card-body-info-address> p{
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif; 
+}
 .swiper-scrollbar {
   display: none !important;
 }
