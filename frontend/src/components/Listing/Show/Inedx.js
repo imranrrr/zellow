@@ -5,8 +5,10 @@ import {
   FaRegQuestionCircle,
   FaEllipsisH,
 } from "react-icons/fa";
-import Modal from "./Modal/index"
+import Modal from "./Modal/index";
 import "./Show.css";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+
 const Show = ({ listing }) => {
   const sessionUser = JSON.parse(localStorage.getItem("current_user"));
   return (
@@ -18,7 +20,7 @@ const Show = ({ listing }) => {
     >
       <div style={{ width: "50%", boxSizing: "border-box", overflowY: "auto" }}>
         <img
-          style={{ width: "100%", marginTop:"7rem" }}
+          style={{ width: "100%", marginTop: "7rem" }}
           src={
             (listing?.images && listing?.images[0]) ||
             "https://s.zillowstatic.com/pfs/static/z-logo-default.svg"
@@ -33,12 +35,12 @@ const Show = ({ listing }) => {
             maxHeight: "400px",
           }}
         >
-          {listing.images.slice(1).map((image) => (
+          {/* {listing.images.slice(1).map((image) => (
             <img
               style={{ width: "100%", marginBottom: "10px" }}
               src={image}
             ></img>
-          ))}
+          ))} */}
         </div>
       </div>
       <div style={{ width: "45%" }}>
@@ -58,7 +60,10 @@ const Show = ({ listing }) => {
             />
           </div>
           <div className="favorite">
-            <FaHeart color={listing?.favorite ? "red" : "#55acfe"} /> Save
+            <FavoriteBorderIcon
+              htmlColor={listing?.favorite ? "red" : "gray"}
+            />
+            Save
           </div>
           <div className="favorite">
             <FaShare color={listing?.favorite ? "red" : "#55acfe"} /> Share
@@ -128,6 +133,7 @@ const Show = ({ listing }) => {
             <button>Contact agent</button>
           </div>
         </div>
+        {/* <div className="form__border__container"></div> */}
       </div>
     </div>
   );

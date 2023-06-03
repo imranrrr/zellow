@@ -57,5 +57,10 @@
   width: 10rem;
 }
 .favorite{
-    color: #55acfe;
+    color: gray;
+}
+.form__border__container {
+  border: 1px solid rgb(209, 209, 213);
+  width: 100%;
+  margin-top: 1rem;
 }

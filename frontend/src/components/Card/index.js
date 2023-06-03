@@ -78,7 +78,7 @@ const Card = ({
           />
         </div>
         <div className="favorite" onClick={() => handleFavorite(listing)}>
-          <FaHeart color={isFavourite ? "red" : "gray"} />
+          < FavoriteBorderIcon  htmlColor={isFavourite ? "red" : "gray"} />
         </div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div
