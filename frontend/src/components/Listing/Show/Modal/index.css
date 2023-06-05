@@ -1,0 +1,140 @@
+.tour__request__container{
+width: 100%;
+height: 100vh;
+}
+.tour__request__container__top {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.6rem;
+  padding: 20px;
+}
+.tour__request__container__top__title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  position: relative;
+  left: 0.7rem;
+}
+.tour__request__container__top__Icon {
+  width: 4%;
+  position: relative;
+  top: 0.4rem;
+  cursor: pointer;
+}
+.tour__request__container__border {
+  width: 100%;
+  margin-top: 1rem;
+  position: relative;
+}
+.tour__request__container__tabs__container {
+  display: flex;
+  width: 100%;
+  position: relative;
+  padding: 10px;
+}
+.tour__request__container__tabs__container__persontab {
+  width: 100%;
+  text-align: center;
+  height: 2.5rem;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.tour__request__container__tabs__container__persontab__title {
+  border: 2px solid #2b88df;
+}
+.tour__request__container__tabs__container__videotab {
+  border: 2px solid gray;
+  width: 100%;
+  text-align: center;
+  height: 2.5rem;
+  cursor: pointer;
+  border-left: none;
+  border-radius: 3px;
+}
+.tour__request__container__tabs__container__videotab__title {
+  position: relative;
+  top: 15%;
+  font-weight: bold;
+}
+.tour__request__container__preferredtime__title {
+  margin-top: 1.5rem;
+  font-weight: bold;
+  right: 1.2rem;
+}
+.tour__request__container__border__container {
+  border: 2px solid #0d7ee8;
+  width: 70%;
+  height: 6rem;
+  border-radius: 4px;
+  position: relative;
+  left: 0.3rem;
+}
+.tour__request__container__border__container__subcontainer {
+  text-align: center;
+  font-weight: bold;
+}
+.tour__request__container__border__container__subcontainer__days {
+  position: relative;
+  top: 1rem;
+}
+
+.tour__request__container__border__container__second {
+  width: 70%;
+  height: 6rem;
+  border-radius: 4px;
+  position: relative;
+  left: 1rem;
+  gap: 0rem;
+}
+.tour__request__container__border__container__third {
+  border: 1px solid gray;
+  width: 80%;
+  height: 6rem;
+  border-radius: 4px;
+  position: relative;
+  left: 1.6rem;
+}
+.tour__request__container__selectfield > select {
+  margin-top: 2rem;
+  width: 85%;
+  margin-left: 1.7rem;
+  height: 2.5rem;
+  outline: none;
+  border: 1px solid rgb(209, 209, 213);
+  border-radius: 4px;
+  padding: 0.1rem;
+  background-color: rgb(246, 246, 250);
+  color: rgb(42, 42, 51);
+  font-size: 16px;
+  font-weight: 400;
+}
+.tour__request__container__tourbutton  {
+  margin-top: 1.5rem;
+  font-weight: bold;
+  width: 100%;
+  margin: 17px;
+}
+.tour__request__container__image > img {
+  width: 95%;
+  margin-top: 1.5rem;
+  margin-left: 1rem;
+  height: 29vh;
+}
+
+.tour .swiper-initialized  .swiper-button-prev{
+  position: absolute;
+  right: 1px !important;
+  top: 30%;
+  height: 100% !important;
+}
+.tour .swiper-initialized .swiper-button-next{
+  right: 0%;
+  top: 30%;
+  height:100% !important;
+}
+
+Button p{
+  color: black;
+}
+.button__container__contact__agent__submit__button{
+  width: 100%;
+}

@@ -29,7 +29,9 @@ const style = {
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
-  p: 4,
+  p: 0,
+  outline: "unset",
+  border: "unset",
 };
 
 const Listing = () => {
@@ -43,23 +45,24 @@ const Listing = () => {
   };
   const handleCloseUpdate = () => setOpenUpdate(false);
 
- 
-
   const [listings, setListings] = useState([]);
   const [search, setSearch] = useState("");
   const [selectedListing, setSelectedListing] = useState(null);
   const sessionUser = JSON.parse(localStorage.getItem("current_user"));
   const navigate = useNavigate();
-  
+
   const fetchListings = async () => {
     const response = await axios.get(`${BASE_URL}/listings`);
     if (response.status === 200) {
       localStorage.setItem("listings", JSON.stringify(response.data));
       setListings(response.data);
+    }else if(response.status === 401){
+      localStorage.removeItem('authorization')
+      navigate('/')
     }
   };
 
-  const handleUpdate = () =>{
+  const handleUpdate = () => {
     setOpenUpdate(false);
     fetchListings();
   }
@@ -67,7 +70,6 @@ const Listing = () => {
   useEffect(() => {
     fetchListings();
   }, []);
-  
 
   const handleListingClick = (listing) => {
     setSelectedListing(listing);
@@ -75,20 +77,22 @@ const Listing = () => {
   };
 
   const handleSearch = async () => {
-    debugger;
     const res = await axios(`${BASE_URL}/listings/search?q=${search}`);
     localStorage.setItem("searched_listings", JSON.stringify(res.data));
     setListings(res.data);
+    navigate('/Search');
   };
 
   const handleDelete = async (listing) => {
-    await axios(`${BASE_URL}/listings/${listing?.id}`, {
+    const response = await axios(`${BASE_URL}/listings/${listing?.id}`, {
       method: "DELETE",
       headers: {
         Authorization: localStorage.getItem("authorization"),
         "Content-Type": "application/json",
       },
     });
+    debugger
+    alert("This Listing Has Been Successfully Deleted!")
     fetchListings()
   };
 
@@ -118,6 +122,7 @@ const Listing = () => {
           <h1>Find it. Tour it. Own it.</h1>
           <div className="container__searchbar">
             <input
+            style={{width: "100%"}}
               type="text"
               placeholder="Enter an address, neighborhood, city or zipcode"
               onChange={(e) => handleSearchChange(e)}

@@ -1,0 +1,140 @@
+.tour__request__container {
+  width: 100%;
+  height: 100vh;
+}
+.tour__request__container__top {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.6rem;
+}
+.tour__request__container__top__title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  position: relative;
+  left: 1.7rem;
+}
+.tour__request__container__top__Icon {
+  width: 4%;
+  position: relative;
+  top: 0.4rem;
+  cursor: pointer;
+}
+.tour__request__container__border {
+  width: 100%;
+  margin-top: 1rem;
+  position: relative;
+}
+.tour__request__container__preferredtime__title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 1.9rem;
+}
+.tour__request__container__preferredtime__anchortag {
+  position: relative;
+  left: 11rem;
+  bottom: 1rem;
+  display: inline-block;
+  color: rgb(13, 69, 153);
+  font-weight: bold;
+  cursor: pointer;
+}
+.tour__request__container__preferredtime__anchortag:hover {
+  border-bottom: 1px solid rgb(13, 69, 153);
+  
+}
+.tour__request__container__namefield{
+    margin-left: 1rem;
+}
+.tour__request__container__namefield > label {
+  display: block;
+  padding-bottom: 4px;
+}
+.tour__request__container__namefield > input {
+  appearance: none;
+  width: 95.9%;
+  margin: 0px;
+  padding: 9px 16px;
+  background-color: rgb(246, 246, 250);
+  border: 1px solid rgb(209, 209, 213);
+  border-radius: 4px;
+  box-sizing: border-box;
+  caret-color: rgb(0, 106, 255);
+  cursor: text;
+  outline: none;
+  box-shadow: none;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  height: auto;
+}
+.tour__request__container__emailfield{
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+.tour__request__container__emailfield > label {
+  display: block;
+  padding-bottom: 4px;
+}
+.tour__request__container__emailfield> input {
+  appearance: none;
+  width: 95.9%;
+  margin: 0px;
+  padding: 9px 16px;
+  background-color: rgb(246, 246, 250);
+  border: 1px solid rgb(209, 209, 213);
+  border-radius: 4px;
+  box-sizing: border-box;
+  caret-color: rgb(0, 106, 255);
+  cursor: text;
+  outline: none;
+  box-shadow: none;
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  height: auto;
+}
+.tour__request__container__emailfield> textarea {
+    appearance: none;
+    width: 95.9%;
+    margin: 0px;
+    padding: 9px 16px;
+    background-color: rgb(246, 246, 250);
+    border: 1px solid rgb(209, 209, 213);
+    border-radius: 4px;
+    box-sizing: border-box;
+    caret-color: rgb(0, 106, 255);
+    cursor: text;
+    outline: none;
+    box-shadow: none;
+    color: rgb(42, 42, 51);
+    -webkit-font-smoothing: antialiased;
+    text-transform: none;
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    height: auto;
+  }
+ .tour__request__container__tourbutton > button {
+    margin-top: 1rem;
+    font-weight: bold;
+    margin-left: 1rem;
+    width: 91%;
+  }
+  .tour__request__container__checkbox {
+  position: relative;
+  left: 0.3rem;
+  }
+  .tour__request__containe__checkbox__text{
+    font-size: 17px;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+  }

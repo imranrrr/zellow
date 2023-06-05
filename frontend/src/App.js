@@ -6,7 +6,7 @@ import Search from "./components/Listing/Search/Index";
 import Favorite from "./components/Favorite/Index";
 import AddListing from "./components/Listing/ListingForm/AddListing";
 import UpdateListing from "./components/Listing/ListingForm/UpdateListing";
-
+import RequestedTours from "./components/RequestedTours/index"
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +17,7 @@ function App() {
         <Route path="/update" element={<UpdateListing />} />
         <Route path="/Search" element={<Search />} />
         <Route path="/favorites" element={<Favorite />} />
+        <Route path="/requested_tour" element={<RequestedTours/>}/>
       </Routes>
     </BrowserRouter>
   );

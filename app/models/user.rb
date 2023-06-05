@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   has_many :listings
   has_many :favorites
+  has_many :request_tours, foreign_key: :owner_id
   has_many :favorite_listings, through: :favorites, source: :listing
-
 
 end

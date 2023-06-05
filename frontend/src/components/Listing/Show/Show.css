@@ -1,0 +1,104 @@
+.Saleing__container {
+  display: flex;
+  position: relative;
+  top: 0.4rem;
+}
+
+.Saleing__container__list {
+  margin-right: 10px;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  background-color: red;
+}
+
+.Saleing__container__list__paragraph {
+  display: flex;
+  position: relative;
+  bottom: 0.3rem;
+}
+
+.Saleing__container__list__paragraph__border {
+  border-left: 2px solid gray;
+  margin-left: 0.5rem;
+}
+
+.Saleing__container__list__paragraph__border__dashed {
+  margin-left: 0.5rem;
+  border-bottom: 1px dashed #3c8ff6;
+}
+
+.payment__container {
+  display: flex;
+}
+
+.payment__container__dollar__sign {
+  margin-left: 0.6rem;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  background-color: #0068fc;
+}
+
+.payment__container__dollar__sign__text {
+  color: white;
+  position: relative;
+  left: 0.5rem;
+  font-size: 16px;
+}
+
+.button__container {
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  /* position: relative; */
+  bottom: 1rem;
+}
+
+.button__container__contact__agent {
+  /* border: 1px solid #87b9fe; */
+  /* border-radius: 0.2rem; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* .button__container__contact__agent>button {
+  background: white;
+  color: #006afe;
+  height: 3.7rem;
+  width: 10rem;
+} */
+
+.favorite {
+  color: gray;
+}
+
+.form__border__container {
+  border: 1px solid rgb(209, 209, 213);
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.button__container__contact__agent__tourButton {
+  display: flex;
+  flex-direction: column;
+  background-color: #006aff !important;
+  text-transform: unset !important;
+  width: 350px;
+  padding-top: .5rem !important;
+  padding-bottom: .3rem !important;
+}
+
+.button__container__contact__agent__tourButton>span {
+  font-size: .8rem;
+}
+
+.button__container__contact__agent__contactButton {
+  color: #006aff !important;
+  border: 1px solid #006afe !important;
+  text-transform: unset !important;
+  width: 30%;
+  padding-top: 1.05rem !important;
+  padding-bottom: 1.05rem !important;
+}

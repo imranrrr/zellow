@@ -1,0 +1,318 @@
+.css-ptiqhd-MuiSvgIcon-root {
+  color: #006aff !important;
+  font-size: 1.5rem !important;
+}
+
+.css-19kzrtu {
+  padding: 0 !important;
+}
+
+/* Overview */
+
+.overview {
+  display: flex;
+  flex-direction: column;
+}
+
+.overview__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.overview__container__points {
+  margin-top: 1rem;
+  display: flex;
+}
+
+.overview__details {
+  margin-top: 1.5rem;
+  border-top: 1px solid lightgray;
+}
+
+.overview__details__heading {
+  margin-top: 1.5rem;
+  font-weight: 600;
+}
+
+.overview__details__badges {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.overview__details__badges>p {
+  font-weight: 600;
+  background-color: #E0F2FF;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: .2rem .5rem;
+  margin-right: .5rem;
+  margin-bottom: .5rem;
+}
+
+.overview__details__desc {
+  margin-top: .5rem;
+}
+
+.overview__details__desc>span {
+  color: #0D4599;
+  font-weight: 600;
+}
+
+.overview__details__desc>span:hover {
+  text-decoration: underline;
+}
+
+.overview__details__desc>p {
+  margin-bottom: 0;
+}
+
+/* Facts and features */
+
+.factsFeatures {
+  margin-top: 2rem;
+}
+
+.factsFeatures__heading {
+  font-weight: 600;
+}
+
+.factsFeatures__interior {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.factsFeatures__interior>h5 {
+  font-weight: 600;
+}
+
+.factsFeatures__interior__lists {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.factsFeatures__interior__lists__list>p {
+  font-weight: 600;
+  word-wrap: break-word;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.factsFeatures__interior__lists__list {
+  margin-right: .5rem;
+}
+
+/* Price and tax history */
+
+
+.priceTaxHistory {
+  margin-top: 2rem;
+}
+
+.priceTaxHistory__heading {
+  font-weight: 600;
+}
+
+.priceTaxHistory__price {
+  margin-top: 1rem;
+}
+
+.priceTaxHistory__price>h5 {
+  font-weight: 600;
+}
+
+.priceTaxHistory__price>table {
+  width: 100%;
+  font-size: 14px;
+}
+
+.priceTaxHistory__price>table>thead {
+  font-weight: 600;
+}
+
+.priceTaxHistory__price>table>tbody>tr>td:nth-child(2) {
+  font-weight: 550;
+}
+
+.priceTaxHistory__price>table>tbody {
+  padding-top: 1rem;
+}
+
+.priceTaxHistory__price>table>tbody>tr>td>span {
+  color: red;
+}
+
+.priceTaxHistory__price>table>tbody>tr {
+  border-top: 1px solid lightgray;
+}
+
+.priceTaxHistory__price>table>tbody>tr>td {
+  padding: .5rem 0;
+}
+
+/* Monthly Cost */
+
+.monthlyCost {
+  margin-top: 2rem;
+}
+
+.monthlyCost__heading {
+  font-weight: 600;
+}
+
+.monthlyCost__estimate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.monthlyCost__estimate>p {
+  margin-bottom: 0;
+}
+
+.monthlyCost__estimate>h5 {
+  font-weight: 600;
+}
+
+
+/* Down Payment */
+
+.downPayment {
+  margin-top: 2rem;
+}
+
+.downPayment__heading {
+  font-weight: 600;
+}
+
+.downPayment__assist {
+  display: flex;
+  flex-direction: column;
+}
+
+.downPayment__assist__desc {
+  margin-top: 2rem;
+  display: flex;
+}
+
+.downPayment__assist__desc>p {
+  margin-left: 1rem;
+}
+
+.downPayment__assist__desc>p>span {
+  text-decoration: dashed;
+  text-decoration-color: #006aff;
+}
+
+.downPayment__assist__enterInfoButton {
+  font-weight: 600 !important;
+  text-transform: unset !important;
+  padding-top: .5rem !important;
+  padding-bottom: .5rem !important;
+}
+
+/* Nearby Schools */
+
+.nearbySchools {
+  margin-top: 2rem;
+}
+
+.nearbySchools__heading {
+  font-weight: 600;
+}
+
+.nearbySchools__heading2 {
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+.nearbySchools__schools {
+  margin-top: 1.5rem;
+}
+
+.nearbySchools__schools__school {
+  display: flex;
+}
+
+.nearbySchools__schools__school>p {
+  margin-bottom: 0;
+}
+
+/* Neighborhood */
+
+.neighborhood {
+  margin-top: 2rem;
+}
+
+.neighborhood__heading {
+  font-weight: 600;
+}
+
+.neighborhood__details {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+}
+
+.neighborhood__details__desc {
+  display: flex;
+}
+
+.neighborhood__details__desc__text {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.neighborhood__details__desc__text>p>span {
+  color: #0D4599;
+  font-weight: 600;
+}
+
+.neighborhood__details__desc__text>b {
+  text-decoration: underline;
+  text-decoration-color: #006aff;
+}
+
+/* Homes for you */
+
+.homesForYou {
+  margin-top: 2rem;
+}
+
+.homesForYou__heading {
+  font-weight: 600;
+}
+
+/* Similar Homes */
+
+.similarHomes {
+  margin-top: 2rem;
+}
+
+.similarHomes__heading {
+  font-weight: 600;
+}
+
+/* Local Legal Protections */
+
+.localLegalProtections {
+  margin-top: 2rem;
+}
+
+.localLegalProtections__heading {
+  font-weight: 600;
+}
+
+.localLegalProtections__desc {
+  margin-top: 1.5rem;
+  display: flex;
+}
+
+.localLegalProtections__desc>p {
+  margin-left: 1rem;
+}

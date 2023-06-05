@@ -1,0 +1,127 @@
+.NewAmount__form > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-y: scroll;
+  }
+  .NewAmount__form__signin__form > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-y: scroll;
+  }
+  .NewAmount__form__email__container__label > label {
+    display: block;
+    padding-bottom: 4px;
+    font-weight: 200;
+    color: rgb(42, 42, 51);
+    -webkit-font-smoothing: antialiased;
+    text-transform: none;
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .NewAmount__form__email__container__textfield > input {
+    appearance: none;
+    width: 100%;
+    margin: 0px;
+    padding: 9px 16px;
+    background-color: rgb(246, 246, 250);
+    border: 1px solid rgb(209, 209, 213);
+    border-radius: 4px;
+    box-sizing: border-box;
+    caret-color: rgb(0, 106, 255);
+    cursor: text;
+    outline: none;
+    box-shadow: none;
+    color: rgb(42, 42, 51);
+    -webkit-font-smoothing: antialiased;
+    text-transform: none;
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    height: auto;
+  }
+  .NewAmount__form__password__container_label > label {
+    display: block;
+    padding-bottom: 4px;
+    color: rgb(42, 42, 51);
+    -webkit-font-smoothing: antialiased;
+    text-transform: none;
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 24px;
+    position: relative;
+    top: 0.5rem;
+  }
+  .NewAmount__form__password__container_textfield > input {
+    appearance: none;
+    width: 100%;
+    margin: 0px;
+    padding: 9px 16px;
+    background-color: rgb(246, 246, 250);
+    border: 1px solid rgb(209, 209, 213);
+    border-radius: 4px;
+    box-sizing: border-box;
+    caret-color: rgb(0, 106, 255);
+    cursor: text;
+    outline: none;
+    box-shadow: none;
+    color: rgb(42, 42, 51);
+    -webkit-font-smoothing: antialiased;
+    text-transform: none;
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    height: auto;
+  }
+  .NewAmount__form__button__submit > button{
+    margin-top: 2rem;
+    width: 100%;
+    transition: all 0.2s;
+  }
+  .NewAmount__form__border__container{
+    border: 1px solid rgb(209, 209, 213);
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .signin__form__social__button__container__Apple > button {
+    width: 100%;
+    background-color: black;
+    transition: all 0.3s;
+    margin-top: 0.5rem;
+  }
+  .signin__form__social__button__container__Apple > button:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+  }
+  .signin__form__social__button__container__facebook > button {
+    width: 100%;
+    transition: all 0.3s;
+    margin-top: 1rem;
+  }
+  .signin__form__social__button__container__facebook > button:hover {
+    background: white;
+    border-color: #1877f2;
+    color: #1877f2;
+  }
+  .signin__form__social__button__container__google > button {
+    width: 100%;
+    transition: all 0.3s;
+    margin-top: 1rem;
+    background-color: white;
+    color: black;
+    border: 1px solid rgb(209, 209, 213);
+  }
