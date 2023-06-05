@@ -23,11 +23,11 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 375,
+  width: 650,
   bgcolor: "background.paper",
   boxShadow: 24,
   overflow: "scroll",
-  height: 520,
+  height: 720,
   overflowX: "hidden",
   borderRadius: 2,
 };
@@ -59,17 +59,10 @@ export default function TourRequestModal({requestForm, setRequestForm, handleClo
 
   return (
     <div>
-      <button
-        onClick={handleOpen}
-        style={{
-          marginTop: "1rem",
-          width: "87%",
-          marginLeft: "1rem",
-          fontSize: "bold",
-        }}
-      >
+      <Button  style={{width: "95%"}} variant="contained" color="primary" onClick={handleOpen}>
         Request this time
-      </button>
+      </Button>
+      
       <Modal
         open={open}
         onClose={handleClose}
@@ -111,7 +104,7 @@ export default function TourRequestModal({requestForm, setRequestForm, handleClo
               <textarea value={requestForm.message} onChange={(e) => setRequestForm({...requestForm, message: e.target.value})} placeholder="I am interested in 1608 5th St, Tillamook, OR 97141." />
             </div>
             <div className="tour__request__container__tourbutton">
-              <Button onClick={handleCreateTour}>Request tour</Button>
+              <Button variant="contained" color="primary" onClick={handleCreateTour}>Request tour</Button>
             </div>
             <div style={{ display: "flex" }}>
               <div className="tour__request__container__checkbox">

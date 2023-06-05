@@ -21,11 +21,11 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 365,
+  width: 650,
   bgcolor: "background.paper",
   boxShadow: 24,
   overflow: "scroll",
-  height: 520,
+  height: 720,
   overflowX: "hidden",
   borderRadius: 2,
 };
@@ -90,9 +90,10 @@ export default function BasicModal({listing}) {
   }
   return (
     <div>
-      <button style={{ width: "18rem", height: "3.9rem" }} onClick={handleOpen}>
-        <strong>Request a tour</strong> <p>as early as today at 4:00</p>
-      </button>
+        <Button className="button__container__contact__agent__tourButton" variant="contained" color="primary" onClick={handleOpen}>
+          Request a tour
+          <span>as early as today at 12:30 pm</span>
+        </Button>
       <Modal
         open={open}
         onClose={handleCloseRequest}
@@ -155,9 +156,9 @@ export default function BasicModal({listing}) {
 
             <div
               style={{
-                height: "140px",
+                height: "168px",
                 position: "relative",
-                bottom: "1.5rem",
+                bottom: "3.5rem",
               }}
               className="tour"
             >
@@ -204,7 +205,7 @@ export default function BasicModal({listing}) {
                 ))}
               </Swiper>
             </div>
-            <div>
+            <div  className="tour__request__container__time_selector">
               <Box sx={{ minWidth: 120 }}>
                 <FormControl fullWidth>
                   <InputLabel
@@ -218,7 +219,7 @@ export default function BasicModal({listing}) {
                     id="demo-simple-select"
                     label="Time"
                     style={{
-                      width: "87%",
+                      width: "95%",
                       marginLeft: "1rem",
                     }}
                     value={requestForm.time}

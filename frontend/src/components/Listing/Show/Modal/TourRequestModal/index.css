@@ -4,7 +4,7 @@
 }
 .tour__request__container__top {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 0.6rem;
 }
 .tour__request__container__top__title {
@@ -20,7 +20,7 @@
   cursor: pointer;
 }
 .tour__request__container__border {
-  width: 22rem;
+  width: 100%;
   margin-top: 1rem;
   position: relative;
 }

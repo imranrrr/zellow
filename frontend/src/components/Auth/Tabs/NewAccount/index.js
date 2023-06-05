@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import AppleIcon from "@mui/icons-material/Apple";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
+import { signup } from "../../../../store/auth/auth.actions";
+
 function NewAmount() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
@@ -13,18 +15,18 @@ function NewAmount() {
   const [value, setValue] = React.useState(0);
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
-    // if (password === confirmPassword) {
-    //   dispatch(signup(email, password));
-    // }
-    // return setErrors([
-    //   "Confirm Password field must be the same as the Password field",
-    // ]);
+    e.preventDefault();
+    if (password === confirmPassword) {
+      dispatch(signup(email, password));
+    }
+    return setErrors([
+      "Confirm Password field must be the same as the Password field",
+    ]);
   };
 
   return (
     <div>
-      <div className="NewAmount__form" onSubmit={handleSubmit}>
+      <div className="NewAmount__form" >
         {/* <ul>
           {errors.map((error) => (
             <p className="error" key={error}>
@@ -67,15 +69,15 @@ function NewAmount() {
           <div className="NewAmount__form__password__container_textfield">
             <input
               type="password"
-              value={password}
+              value={confirmPassword}
               placeholder="Confirm Password"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
           </div>
         </div>
         <div className="NewAmount__form__button__submit">
-          <button type="submit">Submit</button>
+          <button type="submit" onClick={handleSubmit}>Submit</button>
         </div>
         <div className="NewAmount__form__border__container"></div>
         <div style={{ marginTop: "0.5rem", textAlign: "center" }}>

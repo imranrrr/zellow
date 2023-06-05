@@ -1,30 +1,32 @@
 import React, { useState } from "react";
-import "./SignIn.css";
 import { useDispatch } from "react-redux";
 import AppleIcon from "@mui/icons-material/Apple";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
+import { useNavigate } from "react-router-dom";
+import { signin } from "../../../../store/auth/auth.actions";
+import "./SignIn.css";
+
 function SignIn() {
   const dispatch = useDispatch();
+  const sessionUser = "";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
-  const [value, setValue] = React.useState(0);
+  const navigate = useNavigate();
+
+  if (sessionUser) navigate("/");
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
-    // if (password === confirmPassword) {
-    //   dispatch(signup(email, password));
-    // }
-    // return setErrors([
-    //   "Confirm Password field must be the same as the Password field",
-    // ]);
+    e.preventDefault();
+    setErrors([]);
+    dispatch(signin(email, password));
   };
+
 
   return (
     <div>
-      <div className="signin__form" onSubmit={handleSubmit}>
+      <div className="signin__form">
         {/* <ul>
           {errors.map((error) => (
             <p className="error" key={error}>
@@ -61,7 +63,7 @@ function SignIn() {
           </div>
         </div>
         <div className="form__button__signin">
-          <button type="submit">Sign In</button>
+          <button type="submit" onClick={handleSubmit}>Sign In</button>
         </div>
         <div className="form__button__Forgetpassword">
           <a>Forget Your Password</a>

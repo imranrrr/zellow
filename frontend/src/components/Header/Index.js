@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import ProfileButton from "./ProfileButton";
-import Login from "../Auth/Login/Index";
 import Tabs from "../Auth/Tabs/Index";
 import { useDispatch } from "react-redux";
 import Box from "@mui/material/Box";
@@ -74,7 +73,7 @@ function Header() {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              <Login />
+              <Tabs />
             </Box>
           </Modal>
           <div

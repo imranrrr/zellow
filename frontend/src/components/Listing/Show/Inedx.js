@@ -139,13 +139,10 @@ const Show = ({ listing }) => {
         </div>
         <div className="button__container">
           <div>
-            {sessionUser && sessionUser.id != listing.user_id && <Modal listing={listing} />}
-          </div>
+                      </div>
           <div className="button__container__contact__agent">
-            <Button className="button__container__contact__agent__tourButton" variant="contained" color="primary">
-              Request a tour
-              <span>as early as today at 12:30 pm</span>
-            </Button>
+            {sessionUser && sessionUser.id != listing.user_id && <Modal listing={listing} />}
+
             <Button className="button__container__contact__agent__contactButton" variant="outlined" >Contact agent</Button>
           </div>
         </div>
