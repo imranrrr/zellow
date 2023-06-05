@@ -1,1 +1,3 @@
-export const BASE_URL = "http://0.0.0.0:10000"
+export const BASE_URL = (process.env.NODE_ENV !== 'development') ?
+    ("https://zillion.onrender.com") :
+    ('http://localhost:3000');
