@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  default_url_options :host => "https://zillion.onrender.com"
   devise_for :users, controllers: {
     
     sessions: 'users/sessions',
