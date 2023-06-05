@@ -29,7 +29,9 @@ const style = {
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
-  p: 4,
+  p: 0,
+  outline: "unset",
+  border: "unset",
 };
 
 const Listing = () => {
@@ -48,7 +50,7 @@ const Listing = () => {
   const [selectedListing, setSelectedListing] = useState(null);
   const sessionUser = JSON.parse(localStorage.getItem("current_user"));
   const navigate = useNavigate();
-  
+
   const fetchListings = async () => {
     const response = await axios.get(`${BASE_URL}/listings`);
     if (response.status === 200) {
@@ -57,7 +59,7 @@ const Listing = () => {
     }
   };
 
-  const handleUpdate = () =>{
+  const handleUpdate = () => {
     setOpenUpdate(false);
     fetchListings();
   }
@@ -65,7 +67,7 @@ const Listing = () => {
   useEffect(() => {
     fetchListings();
   }, []);
-  
+
   const handleListingClick = (listing) => {
     setSelectedListing(listing);
     handleOpen();

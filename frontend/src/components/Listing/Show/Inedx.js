@@ -8,6 +8,8 @@ import {
 import Modal from "./Modal/index";
 import "./Show.css";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { Button } from "@mui/material";
+import PropertyTabs from "./PropertyTabs";
 
 const Show = ({ listing }) => {
   const sessionUser = JSON.parse(localStorage.getItem("current_user"));
@@ -18,13 +20,14 @@ const Show = ({ listing }) => {
         justifyContent: "space-between",
       }}
     >
-      <div style={{ width: "50%", boxSizing: "border-box", overflowY: "auto" }}>
+      <div style={{ width: "60%", boxSizing: "border-box", overflowY: "auto", display: "flex", flexDirection: "column" }}>
         <img
-          style={{ width: "100%", marginTop: "7rem" }}
-          src={
-            (listing?.images && listing?.images[0]) ||
-            "https://s.zillowstatic.com/pfs/static/z-logo-default.svg"
-          }
+          style={{ width: "100%", marginBottom: "4px" }}
+          // src={
+          //   (listing?.images && listing?.images[0]) ||
+          //   "https://s.zillowstatic.com/pfs/static/z-logo-default.svg"
+          // }
+          src={require('../../../assets/house.jpg')}
         />
         <div
           style={{
@@ -35,6 +38,15 @@ const Show = ({ listing }) => {
             maxHeight: "400px",
           }}
         >
+          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
+          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
+          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
+          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
+          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
+          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
+          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
+          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
+          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
           {/* {listing.images.slice(1).map((image) => (
             <img
               style={{ width: "100%", marginBottom: "10px" }}
@@ -43,7 +55,7 @@ const Show = ({ listing }) => {
           ))} */}
         </div>
       </div>
-      <div style={{ width: "45%" }}>
+      <div style={{ width: "40%", paddingLeft: "1rem", paddingRight: "1rem" }}>
         <div
           style={{
             display: "flex",
@@ -127,11 +139,18 @@ const Show = ({ listing }) => {
         </div>
         <div className="button__container">
           <div>
-            { sessionUser && sessionUser.id != listing.user_id && <Modal listing={listing}/> }
+            {sessionUser && sessionUser.id != listing.user_id && <Modal listing={listing} />}
           </div>
           <div className="button__container__contact__agent">
-            <button>Contact agent</button>
+            <Button className="button__container__contact__agent__tourButton" variant="contained" color="primary">
+              Request a tour
+              <span>as early as today at 12:30 pm</span>
+            </Button>
+            <Button className="button__container__contact__agent__contactButton" variant="outlined" >Contact agent</Button>
           </div>
+        </div>
+        <div className="tabs">
+          <PropertyTabs />
         </div>
         {/* <div className="form__border__container"></div> */}
       </div>
