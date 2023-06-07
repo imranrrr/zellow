@@ -32,6 +32,7 @@ const style = {
   p: 0,
   outline: "unset",
   border: "unset",
+  height:600
 };
 
 const Listing = () => {
@@ -56,16 +57,16 @@ const Listing = () => {
     if (response.status === 200) {
       localStorage.setItem("listings", JSON.stringify(response.data));
       setListings(response.data);
-    }else if(response.status === 401){
-      localStorage.removeItem('authorization')
-      navigate('/')
+    } else if (response.status === 401) {
+      localStorage.removeItem("authorization");
+      navigate("/");
     }
   };
 
   const handleUpdate = () => {
     setOpenUpdate(false);
     fetchListings();
-  }
+  };
 
   useEffect(() => {
     fetchListings();
@@ -90,7 +91,7 @@ const Listing = () => {
         "Content-Type": "application/json",
       },
     });
-    fetchListings()
+    // fetchListings();
   };
 
   const handleSearchChange = (e) => {
@@ -119,7 +120,7 @@ const Listing = () => {
           <h1>Find it. Tour it. Own it.</h1>
           <div className="container__searchbar">
             <input
-            style={{width: "100%"}}
+              style={{ width: "100%" }}
               type="text"
               placeholder="Enter an address, neighborhood, city or zipcode"
               onChange={(e) => handleSearchChange(e)}

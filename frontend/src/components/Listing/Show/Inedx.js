@@ -20,14 +20,22 @@ const Show = ({ listing }) => {
         justifyContent: "space-between",
       }}
     >
-      <div style={{ width: "60%", boxSizing: "border-box", overflowY: "auto", display: "flex", flexDirection: "column" }}>
+      <div
+        style={{
+          width: "60%",
+          boxSizing: "border-box",
+          overflowY: "auto",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <img
           style={{ width: "100%", marginBottom: "4px" }}
           // src={
           //   (listing?.images && listing?.images[0]) ||
           //   "https://s.zillowstatic.com/pfs/static/z-logo-default.svg"
           // }
-          src={require('../../../assets/house.jpg')}
+          src={require("../../../assets/house.jpg")}
         />
         <div
           style={{
@@ -38,15 +46,42 @@ const Show = ({ listing }) => {
             maxHeight: "400px",
           }}
         >
-          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
-          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
-          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
-          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
-          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
-          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
-          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
-          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
-          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
+          <img
+            src={require("../../../assets/house.jpg")}
+            style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }}
+          />
+          <img
+            src={require("../../../assets/house.jpg")}
+            style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }}
+          />
+          <img
+            src={require("../../../assets/house.jpg")}
+            style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }}
+          />
+          <img
+            src={require("../../../assets/house.jpg")}
+            style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }}
+          />
+          <img
+            src={require("../../../assets/house.jpg")}
+            style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }}
+          />
+          <img
+            src={require("../../../assets/house.jpg")}
+            style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }}
+          />
+          <img
+            src={require("../../../assets/house.jpg")}
+            style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }}
+          />
+          <img
+            src={require("../../../assets/house.jpg")}
+            style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }}
+          />
+          <img
+            src={require("../../../assets/house.jpg")}
+            style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }}
+          />
           {/* {listing.images.slice(1).map((image) => (
             <img
               style={{ width: "100%", marginBottom: "10px" }}
@@ -71,22 +106,22 @@ const Show = ({ listing }) => {
               alt={listing?.address}
             />
           </div>
-          <div className="favorite">
+          <div className="favorite" style={{cursor:"pointer"}} >
             <FavoriteBorderIcon
               htmlColor={listing?.favorite ? "red" : "gray"}
             />
             Save
           </div>
-          <div className="favorite">
+          <div className="favorite"  style={{cursor:"pointer"}} >
             <FaShare color={listing?.favorite ? "red" : "#55acfe"} /> Share
           </div>
-          <div className="favorite">
+          <div className="favorite" style={{cursor:"pointer"}} >
             <FaRegQuestionCircle
               color={listing?.favorite ? "red" : "#55acfe"}
             />{" "}
             Hide
           </div>
-          <div className="favorite">
+          <div className="favorite" style={{cursor:"pointer"}} >
             <FaEllipsisH color={listing?.favorite ? "red" : "#55acfe"} /> More
           </div>
         </div>
@@ -128,9 +163,20 @@ const Show = ({ listing }) => {
             </p>
             <div className="payment__container">
               <div className="payment__container__dollar__sign">
-                <p className="payment__container__dollar__sign__text">$</p>
+                <p
+                  className="payment__container__dollar__sign__text"
+                  style={{ cursor: "pointer" }}
+                >
+                  $
+                </p>
               </div>
-              <div style={{ marginLeft: "1rem", color: "#0068fc" }}>
+              <div
+                style={{
+                  marginLeft: "1rem",
+                  color: "#0068fc",
+                  cursor: "pointer",
+                }}
+              >
                 <strong>Get Pre-qualified</strong>
               </div>
             </div>
@@ -138,12 +184,16 @@ const Show = ({ listing }) => {
           <p>{listing?.home_overview}</p>
         </div>
         <div className="button__container">
-          <div>
-                      </div>
+          <div></div>
           <div className="button__container__contact__agent">
-            {sessionUser && sessionUser.id != listing.user_id && <Modal listing={listing} />}
-
-            <Button className="button__container__contact__agent__contactButton" variant="outlined" >Contact agent</Button>
+            {/* {sessionUser && sessionUser.id != listing.user_id && <Modal listing={listing} />} */}
+            <Modal listing={listing} />
+            <Button
+              className="button__container__contact__agent__contactButton"
+              variant="outlined"
+            >
+              Contact agent
+            </Button>
           </div>
         </div>
         <div className="tabs">
