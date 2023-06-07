@@ -98,7 +98,6 @@ const Listing = () => {
       },
     }).then((res) => console.log(res))
     .catch((err) => alert(err.message))
-
     alert("This Listing Has Been Successfully Deleted!")
     fetchListings()
   };
