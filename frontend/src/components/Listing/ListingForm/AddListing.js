@@ -54,6 +54,7 @@ const AddListing = () => {
       reqData.append("listing[images][]", formData.images[i]);
     }
 
+
     axios(`${BASE_URL}/listings`, {
       method: "POST",
       headers: { Authorization: localStorage.getItem("authorization") },
@@ -69,10 +70,11 @@ const AddListing = () => {
         }
       })
       .catch((error) => {
+        alert(error.message)
         // Handle error creating Listing
       });
   };
-
+  
   return (
     <>
      <Header />

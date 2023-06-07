@@ -100,9 +100,9 @@ function Header() {
   return (
     <header className="header">
       <div className="header-links">
-        <span onClick={handleSell}>Sell</span>
+        <span style={{ cursor: "pointer" }} onClick={handleSell}>Sell</span>
         {sessionUser && (
-          <span style={{ marginLeft: "25px" }} onClick={navigateFavorites}>
+          <span style={{ marginLeft: "25px", cursor: "pointer" }} onClick={navigateFavorites}>
             Favorites
           </span>
         )}

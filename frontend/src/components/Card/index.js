@@ -83,6 +83,7 @@ const Card = ({
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div
             className="card-body"
+            style={{cursor: "pointer"}}
             onClick={() => handleListingClick(listing)}
           >
             <h3>${Math.floor(listing?.home_price).toLocaleString()}</h3>

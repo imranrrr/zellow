@@ -11,8 +11,8 @@ import "./Listings.css";
 import { useEffect, useState } from "react";
 import { Box, Button } from "@mui/material";
 import Show from "./Show/Inedx";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -32,7 +32,6 @@ const style = {
   p: 0,
   outline: "unset",
   border: "unset",
-  height:600
 };
 
 const Listing = () => {
@@ -57,16 +56,17 @@ const Listing = () => {
     if (response.status === 200) {
       localStorage.setItem("listings", JSON.stringify(response.data));
       setListings(response.data);
-    } else if (response.status === 401) {
-      localStorage.removeItem("authorization");
-      navigate("/");
+    }else if(response.status === 401){
+      debugger
+      localStorage.removeItem('authorization')
+      navigate('/')
     }
   };
 
   const handleUpdate = () => {
     setOpenUpdate(false);
     fetchListings();
-  };
+  }
 
   useEffect(() => {
     fetchListings();
@@ -80,18 +80,24 @@ const Listing = () => {
   const handleSearch = async () => {
     const res = await axios(`${BASE_URL}/listings/search?q=${search}`);
     localStorage.setItem("searched_listings", JSON.stringify(res.data));
-    setListings(res.data);
+    if(res.data.length > 0){
+      navigate('/Search');
+    }else{
+      alert("No matched result")
+    }
   };
 
   const handleDelete = async (listing) => {
-    await axios(`${BASE_URL}/listings/${listing?.id}`, {
+    const response = await axios(`${BASE_URL}/listings/${listing?.id}`, {
       method: "DELETE",
       headers: {
         Authorization: localStorage.getItem("authorization"),
         "Content-Type": "application/json",
       },
-    });
-    // fetchListings();
+    }).then((res) => console.log(res))
+    .catch((err) => alert(err.message))
+    alert("This Listing Has Been Successfully Deleted!")
+    fetchListings()
   };
 
   const handleSearchChange = (e) => {
@@ -120,7 +126,7 @@ const Listing = () => {
           <h1>Find it. Tour it. Own it.</h1>
           <div className="container__searchbar">
             <input
-              style={{ width: "100%" }}
+            style={{width: "100%"}}
               type="text"
               placeholder="Enter an address, neighborhood, city or zipcode"
               onChange={(e) => handleSearchChange(e)}
