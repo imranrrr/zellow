@@ -28,7 +28,7 @@ User.create!(
     }) 
   end
 
-  12.times do
+  50.times do
     Listing.create!(
       address: Faker::Address.street_address,
       street: Faker::Address.street_name,

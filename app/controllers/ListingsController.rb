@@ -75,6 +75,11 @@ class ListingsController < ApplicationController
     render json: @listings, status: :ok
   end
 
+  def user_listings
+    @listings = current_user.listings
+    render json: @listings, status: :ok
+  end
+
   private
 
   def set_listing
