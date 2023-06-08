@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :listings do 
     collection do
         get 'search'
+        get 'user_listings'
     end
   end
   

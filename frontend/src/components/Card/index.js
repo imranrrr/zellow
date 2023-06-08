@@ -67,9 +67,11 @@ const Card = ({
   return (
     <div className="card-container">
       <div className="card">
-        <div>
+        <div  style={{ cursor: "pointer" }}>
           <img
+           
             className="image"
+            onClick={() => handleListingClick(listing)}
             src={
               (listing?.images && listing?.images[0]) ||
               "https://s.zillowstatic.com/pfs/static/z-logo-default.svg"
@@ -83,7 +85,7 @@ const Card = ({
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div
             className="card-body"
-            style={{cursor: "pointer"}}
+            style={{ cursor: "pointer" }}
             onClick={() => handleListingClick(listing)}
           >
             <h3>${Math.floor(listing?.home_price).toLocaleString()}</h3>
@@ -119,22 +121,6 @@ const Card = ({
               Paul Warrin DRE #01364693
             </span>
           </div>
-          {sessionUser?.id === listing.user_id ? (
-            <div>
-              <FaEdit
-                onClick={() => handleOpenUpdate(listing)}
-                style={{ color: "blue", margin: "5px" }}
-                size={20}
-              />
-              <FaTrash
-                onClick={() => handleDelete(listing)}
-                style={{ color: "red", margin: "5px" }}
-                size={20}
-              />
-            </div>
-          ) : (
-            <></>
-          )}
         </div>
       </div>
     </div>

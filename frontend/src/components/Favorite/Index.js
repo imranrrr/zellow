@@ -113,7 +113,7 @@ const Favorite = () => {
       <div style={{ padding: "3rem" }}>
       
       <div>
-        <h3>Favourite Listings</h3>
+        <h3>Favourite </h3>
       </div>
       <div style={{ marginTop: "2rem" }}>
         <TableContainer component={Paper}>
@@ -122,18 +122,19 @@ const Favorite = () => {
               <TableRow>
                 <StyledTableCell></StyledTableCell>
                 <StyledTableCell align="left">Price</StyledTableCell>
-                <StyledTableCell align="left">Beth Room</StyledTableCell>
-                <StyledTableCell align="left">Adress</StyledTableCell>
+                <StyledTableCell align="left">Bath Room</StyledTableCell>
+                <StyledTableCell align="left">Address</StyledTableCell>
                 <StyledTableCell align="left">Area</StyledTableCell>
                 <StyledTableCell align="left">Action</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
             {favorites.map((row) => (
-                <StyledTableRow key={row.name} onClick={() => handleListingClick(row)}>
+                <StyledTableRow key={row.name} >
                   <StyledTableCell component="th" scope="row">
                   <img
-                    style={{ height: "34px", width: "75px"}}
+                    onClick={() => handleListingClick(row)}
+                    style={{ height: "34px", width: "75px", cursor: "pointer"}}
                     src={
                       (row?.images && row?.images[0]) ||
                       "https://s.zillowstatic.com/pfs/static/z-logo-default.svg"
@@ -141,11 +142,11 @@ const Favorite = () => {
                     alt={row?.address}
                   />
                   </StyledTableCell>
-                  <StyledTableCell align="left">${Math.floor(row?.home_price).toLocaleString()}</StyledTableCell>
-                  <StyledTableCell align="left">{row.bathrooms}</StyledTableCell>
-                  <StyledTableCell align="left">{row?.address}, {row?.city}, {row?.state},{" "} {row?.zipCode}</StyledTableCell>
-                  <StyledTableCell align="left">{row?.listingSize} sqft - Condo for sale</StyledTableCell>
-                  <StyledTableCell align="left">
+                  <StyledTableCell style={{ cursor: "pointer" }} align="left" onClick={() => handleListingClick(row)}>${Math.floor(row?.home_price).toLocaleString()}</StyledTableCell>
+                  <StyledTableCell style={{ cursor: "pointer" }} align="left" onClick={() => handleListingClick(row)}>{row.bathrooms}</StyledTableCell>
+                  <StyledTableCell style={{ cursor: "pointer" }}  align="left" onClick={() => handleListingClick(row)}>{row?.address}, {row?.city}, {row?.state},{" "} {row?.zipCode}</StyledTableCell>
+                  <StyledTableCell style={{ cursor: "pointer" }}  align="left" onClick={() => handleListingClick(row)}>{row?.listingSize} sqft - Condo for sale</StyledTableCell>
+                  <StyledTableCell style={{ cursor: "pointer" }}  align="left">
                     <div style={{ display: "flex" }}>
                       <div>
                         <Button onClick={()=> deleteFavorite(row.id)}>

@@ -40,9 +40,9 @@ function ProfileButton({ user }) {
       </button>
       {isOpen && (
         <ul className="profile-dropdown">
-          <li onClick={logout}>Log Out</li>
-          <li>
-            <Link to={"/requested_tour"}>Tours</Link>
+          <li style={{ cursor: "pointer" }} onClick={logout}>Log Out</li>
+          <li >
+            <Link style={{color: "black", textDecoration: "none"}} to={"/requested_tour"}>Tours</Link>
           </li>
         </ul>
       )}

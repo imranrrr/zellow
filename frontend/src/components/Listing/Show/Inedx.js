@@ -13,6 +13,8 @@ import PropertyTabs from "./PropertyTabs";
 
 const Show = ({ listing }) => {
   const sessionUser = JSON.parse(localStorage.getItem("current_user"));
+
+  const imagesHeight = listing.images && listing.images.length > 1 ? {height: "35%"} : {height: "100%"}
   return (
     <div
       style={{
@@ -22,12 +24,13 @@ const Show = ({ listing }) => {
     >
       <div style={{ width: "60%", boxSizing: "border-box", overflowY: "auto", display: "flex", flexDirection: "column" }}>
         <img
-          style={{ width: "100%", marginBottom: "4px" }}
+          style={{ width: "100%", marginBottom: "4px", ...imagesHeight}}
           // src={
           //   (listing?.images && listing?.images[0]) ||
           //   "https://s.zillowstatic.com/pfs/static/z-logo-default.svg"
           // }
-          src={require('../../../assets/house.jpg')}
+          src={(listing?.images && listing?.images[0]) ||
+            "https://s.zillowstatic.com/pfs/static/z-logo-default.svg"}
         />
         <div
           style={{
@@ -38,15 +41,8 @@ const Show = ({ listing }) => {
             maxHeight: "400px",
           }}
         >
-          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
-          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
-          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
-          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
-          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
-          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
-          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
-          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
-          <img src={require('../../../assets/house.jpg')} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />
+          {  listing?.images && listing?.images[1] && <img src={listing?.images[1]} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />  }
+          {  listing?.images && listing?.images[2] && <img src={listing?.images[2]} style={{ width: "49.8%", objectFit: "cover", marginBottom: "4px" }} />  }
           {/* {listing.images.slice(1).map((image) => (
             <img
               style={{ width: "100%", marginBottom: "10px" }}
@@ -146,9 +142,9 @@ const Show = ({ listing }) => {
             <Button className="button__container__contact__agent__contactButton" variant="outlined" >Contact agent</Button>
           </div>
         </div>
-        <div className="tabs">
+        {/* <div className="tabs">
           <PropertyTabs />
-        </div>
+        </div> */}
         {/* <div className="form__border__container"></div> */}
       </div>
     </div>

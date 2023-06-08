@@ -51,7 +51,7 @@ const UpdateListing = ({ handleClose, listing }) => {
     reqData.append("listing[home_price]", formData.rent_estimate);
     reqData.append("listing[rent_estimate]", formData.rent_estimate);
     reqData.append("listing[home_overview]", formData.home_overview);
-    for (let i = 0; i < formData.images.length; i += 1) {
+    for (let i = 0; i < (formData.images && formData.images.length); i += 1) {
       reqData.append("listing[images][]", formData.images[i]);
     }
 

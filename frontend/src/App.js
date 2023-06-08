@@ -7,6 +7,8 @@ import Favorite from "./components/Favorite/Index";
 import AddListing from "./components/Listing/ListingForm/AddListing";
 import UpdateListing from "./components/Listing/ListingForm/UpdateListing";
 import RequestedTours from "./components/RequestedTours/index"
+import UserList from "./components/Listing/UserListing";
+
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +20,7 @@ function App() {
         <Route path="/Search" element={<Search />} />
         <Route path="/favorites" element={<Favorite />} />
         <Route path="/requested_tour" element={<RequestedTours/>}/>
+        <Route path="/user_list" element={<UserList/>}/>
       </Routes>
     </BrowserRouter>
   );

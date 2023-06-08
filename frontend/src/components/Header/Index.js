@@ -22,7 +22,7 @@ const style = {
   boxShadow: 24,
   p: 4,
   overflowY: "scroll",
-  borderRadius: "10px"
+  borderRadius: "10px",
 };
 
 function Header() {
@@ -100,11 +100,24 @@ function Header() {
   return (
     <header className="header">
       <div className="header-links">
-        <span style={{ cursor: "pointer" }} onClick={handleSell}>Sell</span>
+        <span style={{ cursor: "pointer" }} onClick={handleSell}>
+          Sell
+        </span>
         {sessionUser && (
-          <span style={{ marginLeft: "25px", cursor: "pointer" }} onClick={navigateFavorites}>
-            Favorites
-          </span>
+          <>
+            <span
+              style={{ marginLeft: "25px", cursor: "pointer" }}
+              onClick={navigateFavorites}
+            >
+              Favorites
+            </span>
+            <span
+              style={{ marginLeft: "25px", cursor: "pointer" }}
+              onClick={ () => navigate("/user_list")}
+            >
+              User List
+            </span>
+          </>
         )}
       </div>
       <div className="logo-container">

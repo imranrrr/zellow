@@ -26,6 +26,9 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: "80%",
+  minHeight: "750px",
+  maxHeight: "1050px",
+
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -57,7 +60,6 @@ const Listing = () => {
       localStorage.setItem("listings", JSON.stringify(response.data));
       setListings(response.data);
     }else if(response.status === 401){
-      debugger
       localStorage.removeItem('authorization')
       navigate('/')
     }
@@ -100,6 +102,12 @@ const Listing = () => {
     fetchListings()
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch()
+    }
+  };
+
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setSearch(value);
@@ -126,10 +134,12 @@ const Listing = () => {
           <h1>Find it. Tour it. Own it.</h1>
           <div className="container__searchbar">
             <input
-            style={{width: "100%"}}
+              style={{width: "100%"}}
               type="text"
               placeholder="Enter an address, neighborhood, city or zipcode"
               onChange={(e) => handleSearchChange(e)}
+              onKeyDown={handleKeyDown}
+              
             />
             <div className="container__searchbar__icon">
               <Button onClick={handleSearch}>

@@ -5,8 +5,9 @@ class FavoritesController < ApplicationController
     @favorites = current_user.favorites
     listings = @favorites.map do |favorite|
       listing = favorite.listing
+      images = listing.images.map { |image| url_for(image) }
       favorite = current_user&.favorites&.exists?(listing_id: listing.id)
-      listing.as_json.merge(favorite: favorite)
+      listing.as_json.merge(favorite: favorite, images: images )
     end
    
     render json: listings

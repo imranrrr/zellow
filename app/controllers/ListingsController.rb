@@ -40,13 +40,6 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
 
     if @listing.update(listing_params)
-      if params[:listing][:images]
-        params[:listing][:images].each do |image|
-          if(!@listing.image_urls.include?(image))
-            @listing.images.attach(image)
-          end
-        end
-      end
       render json: @listing, status: :ok
     else
       render json: @listing.errors, status: :unprocessable_entity
@@ -65,7 +58,21 @@ class ListingsController < ApplicationController
 
   def search
     @listings = Listing.where("address ILIKE ? OR city ILIKE ? OR zip_code ILIKE ?", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")
-    render json: @listings
+    @listings = @listings.map do |listing|
+      images = listing.images.map { |image| url_for(image) }
+      listing.as_json.merge(images: images)
+    end
+    render json: @listings, status: :ok
+    
+  end
+
+  def user_listings
+    @listings = current_user.listings
+    @listings = @listings.map do |listing|
+      images = listing.images.map { |image| url_for(image) }
+      listing.as_json.merge(images: images)
+    end
+    render json: @listings, status: :ok
   end
 
   private

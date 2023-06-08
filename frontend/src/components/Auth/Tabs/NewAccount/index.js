@@ -79,48 +79,6 @@ function NewAmount() {
         <div className="NewAmount__form__button__submit">
           <button type="submit" onClick={handleSubmit}>Submit</button>
         </div>
-        <div className="NewAmount__form__border__container"></div>
-        <div style={{ marginTop: "0.5rem", textAlign: "center" }}>
-          <span>or connected with:</span>
-        </div>
-        <div className="signin__form__social__button__container">
-          <div className="signin__form__social__button__container__Apple">
-            <button>
-              <div style={{ display: "flex" }}>
-                <div>
-                  <AppleIcon />
-                </div>
-                <span style={{ marginLeft: "3rem", marginTop: "0.1rem" }}>
-                  Continue with Apple
-                </span>
-              </div>
-            </button>
-          </div>
-          <div className="signin__form__social__button__container__facebook">
-            <button>
-              <div style={{ display: "flex" }}>
-                <div>
-                  <FacebookIcon />
-                </div>
-                <span style={{ marginLeft: "3rem", marginTop: "0.1rem" }}>
-                  Continue with Facebook
-                </span>
-              </div>
-            </button>
-          </div>
-          <div className="signin__form__social__button__container__google">
-            <button>
-              <div style={{ display: "flex" }}>
-                <div>
-                  <GoogleIcon />
-                </div>
-                <span style={{ marginLeft: "3rem", marginTop: "0.1rem" }}>
-                  Continue with Google
-                </span>
-              </div>
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   );
