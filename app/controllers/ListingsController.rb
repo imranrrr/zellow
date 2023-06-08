@@ -63,7 +63,6 @@ class ListingsController < ApplicationController
       listing.as_json.merge(images: images)
     end
     render json: @listings, status: :ok
-    
   end
 
   def user_listings
@@ -72,11 +71,6 @@ class ListingsController < ApplicationController
       images = listing.images.map { |image| url_for(image) }
       listing.as_json.merge(images: images)
     end
-    render json: @listings, status: :ok
-  end
-
-  def user_listings
-    @listings = current_user.listings
     render json: @listings, status: :ok
   end
 
