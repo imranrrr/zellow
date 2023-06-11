@@ -17,7 +17,7 @@ const containerStyle = {
   width: "500px",
   height: "300px",
 };
-const apiKey = "AIzaSyBc5HVEqSJnOYU2bNY8CxUIAaaGDIp51Jk";
+const apiKey = process.env.GOOGLE_API_KEY
 
 const Show = ({ listing }) => {
   const sessionUser = JSON.parse(localStorage.getItem("current_user"));
@@ -33,7 +33,7 @@ const Show = ({ listing }) => {
       : { height: "100%" };
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyBc5HVEqSJnOYU2bNY8CxUIAaaGDIp51Jk",
+    googleMapsApiKey: apiKey,
   });
 
   const getCoordinates = async () => {
@@ -41,7 +41,7 @@ const Show = ({ listing }) => {
       const response = await axios.get(
         `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
           address
-        )}&key=AIzaSyBc5HVEqSJnOYU2bNY8CxUIAaaGDIp51Jk`
+        )}&key=${apiKey}`
       );
       if (response.data.results.length > 0) {
         const { lat, lng } = response.data.results[0].geometry.location;
